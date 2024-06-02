@@ -51,7 +51,7 @@ export const SidebarLink = forwardRef<unknown, SidebarLinkProps>(
           intent={isSamePage ? 'primary' : 'base'}
           css={{ ...buttonStyles, ...activeStyles }}
         >
-          {isIndex ? 'About' : item.label}
+          {isIndex ? 'About' : item.label + "1ddd"}
         </ButtonLink>
       </NextLink>
     );
