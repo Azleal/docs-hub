@@ -77,7 +77,7 @@ async function main() {
 }
 
 function getSidebarName(key) {
-  let newKey = key;
+  let newKey = key + "2ddd";
   switch (key) {
     case 'fuels-rs':
       newKey = 'Rust SDK';
@@ -92,7 +92,7 @@ function getSidebarName(key) {
       newKey = 'GraphQL API';
       break;
     case 'specs':
-      newKey = 'Specifications';
+      newKey = '规范';
       break;
     case 'sway-libs':
       newKey = 'Sway Libraries';
