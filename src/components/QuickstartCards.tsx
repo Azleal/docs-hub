@@ -39,22 +39,22 @@ export function QuickstartCards() {
     <Box>
       <Grid css={styles.grid}>
         <Card
-          heading={'Smart Contract Developer'}
-          description={'Generate and deploy a smart contract in Sway.'}
+          heading={'智能合约开发者'}
+          description={'在Sway中生成并部署一个智能合约。'}
           href={'/guides/contract-quickstart'}
           icon={'Script'}
         />
 
         <Card
-          heading={'Frontend / Fullstack Developer'}
-          description={'Generate a full-stack counter contract dapp on Fuel.'}
+          heading={'前端/全栈开发者'}
+          description={'在Fuel上生成一个全栈计数器合约dapp。'}
           href={'/guides/frontend-quickstart'}
           icon={'BoxPadding'}
         />
 
         <Card
-          heading={'Node Operator'}
-          description={'Get started running a node on Fuel.'}
+          heading={'节点操作员'}
+          description={'开始在Fuel上运行一个节点。'}
           href={'/guides/running-a-node'}
           icon={'Broadcast'}
         />
@@ -62,6 +62,7 @@ export function QuickstartCards() {
     </Box>
   );
 }
+
 
 const styles = {
   grid: cssObj({
