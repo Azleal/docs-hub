@@ -1,6 +1,6 @@
 [submodule "docs/sway"]
 	path = docs/sway
-	url = https://github.com/FuelLabs/sway.git
+	url = https://github.com/fueldev-xyz/sway.git
 [submodule "docs/fuels-rs"]
 	path = docs/fuels-rs
 	url = https://github.com/FuelLabs/fuels-rs.git
@@ -13,7 +13,7 @@
 	# branch = docs
 [submodule "docs/builds/sway"]
 	path = docs/builds/sway
-	url = https://github.com/FuelLabs/sway.git
+	url = https://github.com/fueldev-xyz/sway.git
 	# branch = gh-pages
 [submodule "docs/fuels-wallet"]
 	path = docs/fuels-wallet
@@ -39,10 +39,10 @@
 	url = https://github.com/FuelLabs/fuel-core
 [submodule "docs/nightly/sway"]
 	path = docs/nightly/sway
-	url = https://github.com/FuelLabs/sway.git
+	url = https://github.com/fueldev-xyz/sway.git
 [submodule "docs/nightly/builds/sway"]
 	path = docs/nightly/builds/sway
-	url = https://github.com/FuelLabs/sway.git
+	url = https://github.com/fueldev-xyz/sway.git
 [submodule "docs/nightly/fuels-rs"]
 	path = docs/nightly/fuels-rs
 	url = https://github.com/FuelLabs/fuels-rs.git
