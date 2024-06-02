@@ -49,7 +49,7 @@ function slugForSitemap(itemSlug) {
 }
 
 function createUrl(slug) {
-  const BASE_URL = 'https://docs.fuel.network/';
+  const BASE_URL = 'https://docs.fueldev.xyz/';
 
   return `${BASE_URL}${slug.replace('../', '').replace('./', '')}`;
 }
