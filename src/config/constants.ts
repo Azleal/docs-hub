@@ -58,7 +58,7 @@ export const NAVIGATION: any[] = [
     link: "/guides",
   },
   {
-    name: "Intro",
+    name: "介绍",
     link: "/docs/intro",
   },
   {

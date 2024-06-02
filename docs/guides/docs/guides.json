@@ -1,49 +1,49 @@
 {
   "intro_to_predicates": {
-    "title": "Predicates 101: Building Stateless DeFi Applications",
-    "description": "Learn about predicates by building a MultiSig",
+    "title": "断言101：构建无状态DeFi应用程序",
+    "description": "通过构建一个多重签名学习断言",
     "featured": true,
     "tags": ["Full Stack"]
   },
   "intro_to_sway": {
-    "title": "Introduction to Sway for JavaScript developers",
-    "description": "Learn Sway fundamentals by building a marketplace dApp.",
+    "title": "JavaScript开发者的Sway简介",
+    "description": "通过构建一个市场dApp来学习Sway基础。",
     "featured": true,
     "tags": ["Full Stack"]
   },
   "contract-quickstart": {
-    "title": "Smart Contract Quickstart",
-    "description": "Get started by generating a counter contract in Sway.",
+    "title": "智能合约快速入门",
+    "description": "通过生成一个计数器合约来开始使用Sway。",
     "featured": false,
     "tags": ["Getting Started"]
   },
   "frontend-quickstart": {
-    "title": "Frontend/Fullstack Quickstart",
-    "description": "Get started by generating a full-stack counter dapp on Fuel.",
+    "title": "前端/全栈快速入门",
+    "description": "通过生成一个全栈计数器dapp来开始使用Fuel。",
     "featured": false,
     "tags": ["Getting Started", "Full Stack"]
   },
   "counter-dapp": {
-    "title": "Counter Dapp",
-    "description": "Step-by-step guide to build a counter dApp on Fuel",
+    "title": "计数器dapp",
+    "description": "逐步指南：在Fuel上构建一个计数器dApp",
     "featured": false,
     "tags": ["Getting Started", "Full Stack"]
   },
   "running_a_node": {
-    "title": "Running a Node",
-    "description": "Run a local Fuel node.",
+    "title": "运行节点",
+    "description": "运行一个本地Fuel节点。",
     "featured": false,
     "tags": ["fuel-core"]
   },
   "installation": {
-    "title": "Toolchain Installation",
-    "description": "Install the Fuel toolchain and binaries.",
+    "title": "工具链安装",
+    "description": "安装Fuel工具链和二进制文件。",
     "featured": false,
     "tags": ["Getting Started"]
   },
   "migration_guide": {
-    "title": "Migration Guide",
-    "description": "Sway and SDK's breaking changes reference.",
+    "title": "迁移指南",
+    "description": "Sway和SDK的重要变更参考。",
     "featured": false,
     "tags": []
   }
