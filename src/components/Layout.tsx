@@ -2,7 +2,7 @@ import { cssObj } from '@fuel-ui/css';
 import { Box, Grid } from '@fuel-ui/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { type ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 import type { Config, NavOrder, VersionSet, Versions } from '../types';
 
@@ -43,8 +43,8 @@ export function Layout({
 
   const titleText =
     title && router.pathname !== '/'
-      ? `${title[0].toUpperCase()}${title.slice(1)} | Fuel Docs`
-      : 'Fuel Docs';
+      ? `${title[0].toUpperCase()}${title.slice(1)} | Fuel中文文档`
+      : 'Fuel中文文档';
 
   function getSlug() {
     return router.pathname.includes('/guides') ? 'guides' : '';
@@ -65,7 +65,7 @@ export function Layout({
           content={
             config && config?.ogTags?.description !== ''
               ? config?.ogTags?.description
-              : 'Fuel Network Docs'
+              : 'Fuel中文文档'
           }
           key='desc'
         />
@@ -75,7 +75,7 @@ export function Layout({
           content={
             config && config?.ogTags?.description !== ''
               ? config?.ogTags?.description
-              : 'Official documentation for the Fuel Network'
+              : 'Fuel中文文档'
           }
         />
         <meta
