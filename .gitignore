@@ -49,3 +49,4 @@ notes
 
 # Generated files
 src/generated/
+.env
