@@ -6,7 +6,6 @@ import { EXTERNAL_NAVIGATION_LINKS } from '../config/constants';
 import { useDocContext } from '../hooks/useDocContext';
 import type { NavOrder, SidebarLinkItem, VersionSet, Versions } from '../types';
 
-import { FeedbackForm } from './FeedbackForm';
 import { SidebarLink, buttonStyles } from './SidebarLink';
 import { SidebarSection } from './SidebarSection';
 
@@ -97,7 +96,7 @@ export function Sidebar({
               />
             </Box>
           ))}
-          <FeedbackForm />
+          {/* <FeedbackForm /> */}
         </>
       )}
     </Box.Stack>

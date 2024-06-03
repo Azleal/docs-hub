@@ -85,6 +85,23 @@ const labelMap = {
   'rust differences': '与 Rust 的不同之处',
   'contributing to sway': 'Sway 贡献指南',
   keywords: 'keywords关键字',
+
+  //sway-libs
+  'running tests': '运行测试',
+  asset: '资产库',
+  base: '基本功能',
+  supply: '供应功能',
+  metadata: '元数据功能',
+
+  admin: 'Admin库',
+  ownership: 'Ownership库',
+  pausable: 'Pausable库',
+  reentrancy: '重入保护库',
+  bytecode: '字节码库',
+  merkle: 'Merkle 库',
+  'fixed point': '固定小数点数库',
+  'signed integers': '有符号整数库',
+  queue: '队列库',
 };
 
 export function toCnLabel(label: string) {
