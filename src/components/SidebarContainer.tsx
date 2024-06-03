@@ -19,7 +19,7 @@ export function SidebarContainer({
     <Box css={styles.sidebar}>
       <Box css={styles.logo}>
         <Link href='/' className='logo'>
-          <FuelLogo size={30} />
+          <FuelLogo size={30} /> Fuel中文文档
         </Link>
       </Box>
 
