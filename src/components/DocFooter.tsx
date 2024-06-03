@@ -2,6 +2,7 @@ import { cssObj } from '@fuel-ui/css';
 import { Box, Button, ButtonLink, Grid, Text } from '@fuel-ui/react';
 import NextLink from 'next/link';
 import { useDocContext } from '~/src/hooks/useDocContext';
+import { toCnLabel } from '../config/toCnLabel';
 
 export function PrevAndNextLinks() {
   const { docLink } = useDocContext();
@@ -23,7 +24,7 @@ export function PrevAndNextLinks() {
             >
               <Box.VStack css={{ ...styles.links, ...styles.alignRight }}>
                 <Text>PREVIOUS</Text>
-                <Text css={styles.label}>{docLink.prev.label}</Text>
+                <Text css={styles.label}>{toCnLabel(docLink.prev.label)}</Text>
               </Box.VStack>
             </Button>
           </NextLink>
@@ -41,7 +42,7 @@ export function PrevAndNextLinks() {
             >
               <Box.VStack css={{ ...styles.links, ...styles.alignLeft }}>
                 <Text>NEXT</Text>
-                <Text css={styles.label}>{docLink.next.label}</Text>
+                <Text css={styles.label}>{toCnLabel(docLink.next.label)}</Text>
               </Box.VStack>
             </Button>
           </NextLink>

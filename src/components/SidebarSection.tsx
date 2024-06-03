@@ -1,9 +1,10 @@
 import { cssObj } from '@fuel-ui/css';
-import { Box, Button, ButtonLink, Icon } from '@fuel-ui/react';
 import type { ButtonLinkProps } from '@fuel-ui/react';
+import { Box, Button, ButtonLink, Icon } from '@fuel-ui/react';
 import { useState } from 'react';
 import type { VersionItem } from '~/src/types';
 
+import { toCnLabel } from '../config/toCnLabel';
 import { SidebarLink } from './SidebarLink';
 import { SidebarSubmenu } from './SidebarSubmenu';
 
@@ -71,7 +72,7 @@ export function SidebarSection({
             rightIcon={isOpened ? Icon.is('ChevronUp') : Icon.is('ChevronDown')}
             iconSize={16}
           >
-            {bookName}
+            {toCnLabel(bookName)}
           </Button>
         </Box.Flex>
       )}

@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { forwardRef } from 'react';
 import type { SidebarLinkItem } from '~/src/types';
+import { toCnLabel } from '../config/toCnLabel';
 
 export type SidebarLinkProps = ButtonLinkProps & {
   item: SidebarLinkItem;
@@ -51,7 +52,7 @@ export const SidebarLink = forwardRef<unknown, SidebarLinkProps>(
           intent={isSamePage ? 'primary' : 'base'}
           css={{ ...buttonStyles, ...activeStyles }}
         >
-          {isIndex ? 'About' : item.label + "1ddd"}
+          {isIndex ? toCnLabel('About') : toCnLabel(item.label)}
         </ButtonLink>
       </NextLink>
     );
