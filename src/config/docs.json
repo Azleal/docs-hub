@@ -2,7 +2,7 @@
   "intro": {
     "title": "介绍",
     "slug": "intro",
-    "repository": "https://github.com/FuelLabs/docs-hub",
+    "repository": "https://github.com/fueldev-xyz/docs-hub",
     "ogTags": {
       "description": "Fuel网络介绍",
       "image": ""
@@ -11,7 +11,7 @@
   "contributing": {
     "title": "Contributing",
     "slug": "contributing",
-    "repository": "https://github.com/FuelLabs/docs-hub",
+    "repository": "https://github.com/fueldev-xyz/docs-hub",
     "ogTags": {
       "description": "Contribution guide for the Fuel Docs",
       "image": ""
@@ -20,7 +20,7 @@
   "guides": {
     "title": "Guides",
     "slug": "guides",
-    "repository": "https://github.com/FuelLabs/docs-hub",
+    "repository": "https://github.com/fueldev-xyz/docs-hub",
     "ogTags": {
       "description": "Guides for the Fuel Network",
       "image": ""
@@ -29,7 +29,7 @@
   "sway": {
     "title": "Sway",
     "slug": "sway",
-    "repository": "https://github.com/FuelLabs/sway",
+    "repository": "https://github.com/fueldev-xyz/sway",
     "ogTags": {
       "description": "Official documentation for the Sway language",
       "image": ""
@@ -38,7 +38,7 @@
   "sway-libs": {
     "title": "Sway Libs",
     "slug": "sway-libs",
-    "repository": "https://github.com/FuelLabs/sway-libs",
+    "repository": "https://github.com/fueldev-xyz/sway-libs",
     "ogTags": {
       "description": "Official documentation for Fuel's Sway Libraries",
       "image": ""
@@ -47,7 +47,7 @@
   "fuels-rs": {
     "title": "Fuel Rust SDK",
     "slug": "fuels-rs",
-    "repository": "https://github.com/FuelLabs/fuels-rs",
+    "repository": "https://github.com/fueldev-xyz/fuels-rs",
     "ogTags": {
       "description": "Official documentation for the Fuels Rust SDK",
       "image": ""
@@ -56,7 +56,7 @@
   "fuels-ts": {
     "title": "Fuel TS SDK",
     "slug": "fuels-ts",
-    "repository": "https://github.com/FuelLabs/fuels-ts",
+    "repository": "https://github.com/fueldev-xyz/fuels-ts",
     "ogTags": {
       "description": "Official documentation for the Fuels TypeScript SDK",
       "image": ""
@@ -65,7 +65,7 @@
   "wallet": {
     "title": "Fuel Wallet",
     "slug": "wallet",
-    "repository": "https://github.com/FuelLabs/fuels-wallet",
+    "repository": "https://github.com/fueldev-xyz/fuels-wallet",
     "ogTags": {
       "description": "Official documentation for the Fuel Wallet",
       "image": "/images/wallet-og-image.png"
@@ -74,7 +74,7 @@
   "graphql": {
     "title": "Fuel GraphQL API",
     "slug": "graphql",
-    "repository": "https://github.com/FuelLabs/fuel-graphql-docs",
+    "repository": "https://github.com/fueldev-xyz/fuel-graphql-docs",
     "ogTags": {
       "description": "Official documentation for the Fuel GraphQL API",
       "image": ""
@@ -83,7 +83,7 @@
   "fuelup": {
     "title": "Fuelup",
     "slug": "fuelup",
-    "repository": "https://github.com/FuelLabs/fuelup",
+    "repository": "https://github.com/fueldev-xyz/fuelup",
     "ogTags": {
       "description": "Official documentation for fuelup",
       "image": ""
@@ -92,7 +92,7 @@
   "specs": {
     "title": "Fuel Specifications",
     "slug": "specs",
-    "repository": "https://github.com/FuelLabs/fuel-specs",
+    "repository": "https://github.com/fueldev-xyz/fuel-specs",
     "ogTags": {
       "description": "Official specifications for the Fuel Network",
       "image": ""
@@ -101,7 +101,7 @@
   "forc": {
     "title": "Forc",
     "slug": "forc",
-    "repository": "https://github.com/FuelLabs/sway",
+    "repository": "https://github.com/fueldev-xyz/sway",
     "ogTags": {
       "description": "Official documentation for the Fuel Orchestrator",
       "image": ""

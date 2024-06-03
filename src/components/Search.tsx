@@ -49,7 +49,7 @@ function getItemData(item: DocSearchHit): string[] {
       }
     }
   }
-  return ['', 'https://docs.fuel.network/'];
+  return ['', 'https://docs.fueldev.xyz/'];
 }
 
 function makeNewItem(item: DocSearchHit) {

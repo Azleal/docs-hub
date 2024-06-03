@@ -1,8 +1,8 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import { compile } from '@mdx-js/mdx';
 import { addRawDocumentToVFile } from 'contentlayer/core';
 import type { MdDoc } from 'contentlayer/generated';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { codeExamples } from '~/docs/fuel-graphql-docs/src/lib/code-examples';
 import { codeImport as gqlCodeImport } from '~/docs/fuel-graphql-docs/src/lib/code-import';
 import { codeImport as walletCodeImport } from '~/docs/fuels-wallet/packages/docs/src/lib/code-import';
@@ -25,7 +25,7 @@ const branchUrl = `https://${process.env.VERCEL_BRANCH_URL}/`;
 const docConfigPath = join(DOCS_DIRECTORY, '../src/config/docs.json');
 const configFile = JSON.parse(readFileSync(docConfigPath, 'utf8'));
 const BASE_URL =
-  isPreview && branchUrl ? branchUrl : 'https://docs.fuel.network/';
+  isPreview && branchUrl ? branchUrl : 'https://docs.fueldev.xyz/';
 
 export class Doc {
   md: MdDoc;
