@@ -1,38 +1,36 @@
 ---
-title: Installation
+title: 安装
 category: Installation
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Toolchain installation
+# 工具链安装
 
-This guide will help you to install the Fuel toolchain binaries and prerequisites.
+本指南将帮助你安装 Fuel 工具链的二进制文件和必要的前提条件。
 
-This guide covers the following topics:
+本指南涵盖以下主题：
 
-1. [Installing the Fuel toolchain using `fuelup`](#installing-the-fuel-toolchain-using-fuelup)
-2. [Changing your default toolchain](#changing-your-default-toolchain)
-3. [Setting up a local wallet](#setting-up-a-local-wallet)
-4. [Installing Rust](#installing-rust)
+1. [使用 `fuelup` 安装 Fuel 工具链](#使用-fuelup-安装-fuel-工具链)
+2. [更改默认工具链](#更改默认工具链)
+3. [设置本地钱包](#设置本地钱包)
+4. [安装 Rust](#安装-rust)
 
-## Installing the Fuel toolchain using fuelup
+## 使用 `fuelup` 安装 Fuel 工具链
 
-`fuelup` is the official package manager for Fuel that installs the Fuel toolchain
-from the official release channels, enabling you to easily switch between different
-toolchains and keep them updated. It makes building and maintaining Sway applications simpler with [`forc`](/docs/forc) and [`fuel-core`](https://github.com/FuelLabs/fuel-core) for common platforms.
+`fuelup` 是 Fuel 的官方包管理器，可以从官方发布渠道安装 Fuel 工具链，使你可以轻松地在不同工具链之间切换并保持更新。它使使用 [`forc`](/docs/forc) 和 [`fuel-core`](https://github.com/FuelLabs/fuel-core) 在常见平台上构建和维护 Sway 应用程序变得更简单。
 
-> 💡 Check out the [fuelup docs](https://install.fuel.network/latest/) for more information.
+> 💡 欲了解更多信息，请查看 [fuelup 文档](https://install.fuel.network/latest/)。
 
-### Running `fuelup-init`
+### 运行 `fuelup-init`
 
 {/*install_fuelup:example:start*/}
-To install the Fuel toolchain, you can use the `fuelup-init` script.
-This will install `forc`, `forc-client`, `forc-fmt`, `forc-lsp`, `forc-wallet` as well as `fuel-core` in `~/.fuelup/bin`.
+要安装 Fuel 工具链，你可以使用 `fuelup-init` 脚本。
+这将安装 `forc`、`forc-client`、`forc-fmt`、`forc-lsp`、`forc-wallet` 以及 `fuel-core` 到 `~/.fuelup/bin`。
 {/*install_fuelup:example:end*/}
 
-👉 Just paste the following line in your terminal and press *Enter*.
+👉 只需在终端中粘贴以下行并按 *Enter*。
 
 {/*ANCHOR: install_fuelup_command*/}
 
@@ -42,12 +40,12 @@ curl https://install.fuel.network | sh
 
 {/*ANCHOR_END: install_fuelup_command*/}
 
-> 🚧 Be aware that currently  we do not natively support Windows. If you wish to use `fuelup` on Windows, please use Windows Subsystem for Linux.
+> 🚧 请注意，目前我们尚不支持 Windows 的本机安装。如果你希望在 Windows 上使用 `fuelup`，请使用 Windows Subsystem for Linux。
 
-### Setup PATH
+### 设置 PATH
 
-Once the script is downloaded, it will be executed automatically.
-The `fuelup-init` script will prompt you with the question below:
+脚本下载后，将自动执行。
+`fuelup-init` 脚本会提示你以下问题：
 
 ```sh
 fuelup uses "/home/username/.fuelup" as its home directory to manage the Fuel toolchain, and will install binaries there.
@@ -61,11 +59,14 @@ If permitted, fuelup-init will configure your PATH for you by running the follow
 Would you like fuelup-init to modify your PATH variable for you? (N/y)
 ```
 
-👉 Press the `Y` key in your terminal and press *Enter* to modify your PATH.
+👉 在终端中按 `Y` 键并按 *Enter* 以修改你的 PATH。
 
-### Checking the installation
+### 检查安装
 
-After allowing the `fuelup-init` script to modify your `PATH` variable, you will see a lot of information about packages being downloaded and installed. If everything goes as expected you will see the following message:
+允许 `fuelup-init` 脚本修改你的 `PATH` 变量后，你会看到很多关于包下载和安装的信息。如果一切顺利，你将看到以下消息：
+### 检查安装情况
+
+在允许 `fuelup-init` 脚本修改您的 `PATH` 变量后，您将看到大量有关正在下载和安装的软件包的信息。 如果一切正常，您将看到以下消息：
 
 ```sh
 The Fuel toolchain is installed and up to date
@@ -75,64 +76,63 @@ To fetch the latest toolchain containing the forc and fuel-core binaries, run 'f
 To generate completions for your shell, run 'fuelup completions --shell=SHELL'.
 ```
 
-👉 Use `fuelup --version` any time to check which version of the package you are using.
+👉 随时使用 \`fuelup --version\` 命令查看您正在使用的软件包的版本。
 
-```sh
+\```sh
  fuelup --version
-```
+\```
 
-That will output your current `fuelup` version:
+这将输出您当前的 \`fuelup\` 版本：
 
-```sh
+\```sh
 fuelup 0.21.0
-```
+\```
 
-### VSCode extensions
+### VSCode 扩展
 
 {/*install_VSCode_extensions:example:start*/}
-If you're using VSCode, we recommend installing the [Sway extension](https://marketplace.visualstudio.com/items?itemName=FuelLabs.sway-vscode-plugin).
+如果您正在使用 VSCode，我们建议安装 [Sway 扩展](https://marketplace.visualstudio.com/items?itemName=FuelLabs.sway-vscode-plugin)。
 {/*install_VSCode_extensions:example:end*/}
 
-## Changing your default toolchain
+## 更改默认工具链
 
-Just as in [Rust](https://rust-lang.github.io/rustup/concepts/toolchains.html), Fuel supports multiple toolchains.
-A toolchain is a collection of tools (such as the compiler, LSP, etc).
-By default, `fuelup` includes a series of packages tested to work with each other, providing a reliable set of tools.
+就像在 [Rust](https://rust-lang.github.io/rustup/concepts/toolchains.html) 中一样，Fuel 支持多个工具链。
+工具链是一组工具（如编译器、LSP 等）。
+默认情况下，\`fuelup\` 包含了一系列经过测试以相互配合使用的软件包，提供了可靠的工具集。
+默认情况下，安装 `fuelup` 时配置的是 `latest` 工具链，这是与当前 {props.fuelTestnetInlineCode} 网络兼容的稳定工具链。
 
-The default toolchain configured when you install `fuelup` is the `latest` toolchain, which is the stable toolchain compatible with the current {props.fuelTestnetInlineCode} network.
+### 更新 fuelup
 
-### Updating fuelup
+确保您拥有 `fuelup` 的最新版本，以便您可以访问最新功能并获得最佳性能。
 
-Make sure you have the latest version of `fuelup` so you can access the latest features and have the best performance.
+👉 运行以下命令更新 `fuelup`：
 
-👉 Update `fuelup`  by running the following command:
-
-```sh
+\```sh
 fuelup self update
-```
+\```
 
-Then you will get an output like this:
+然后您将获得如下输出：
 
-```sh
+\```sh
 Fetching binary from https://github.com/FuelLabs/fuelup/releases/download/v0.19.5/fuelup-0.19.5-aarch64-apple-darwin.tar.gz
 Downloading component fuelup without verifying checksum
 Unpacking and moving fuelup to /var/folders/tp/0l8zdx9j4s9_n609ykwxl0qw0000gn/T/.tmpiNJQHt
 Moving /var/folders/tp/0l8zdx9j4s9_n609ykwxl0qw0000gn/T/.tmpiNJQHt/fuelup to /Users/.fuelup/bin/fuelup
-```
+\```
 
-### Using the latest toolchain
+### 使用最新工具链
 
-To properly interact with the testnet network it is necessary to use the `latest` toolchain, which is installed by default.
+为了正确地与测试网络进行交互，必须使用 `latest` 工具链，默认已安装。
 
-👉 Run the following command to verify the installation of `latest` toolchain:
+👉 运行以下命令验证 `latest` 工具链的安装：
 
-```sh
+\```sh
 fuelup show
-```
+\```
 
-If the toolchain was successfully installed, you will see this output:
+如果工具链安装成功，您将看到以下输出：
 
-```sh
+\```sh
 installed toolchains
 --------------------
 latest-x86_64-unknown-linux-gnu (default)
@@ -141,28 +141,29 @@ active toolchain
 -----------------
 latest-x86_64-unknown-linux-gnu (default)
 ...
-```
+\```
 
-### Installing `nightly` toolchain
+### 安装 `nightly` 工具链
 
-In case you want to try out the unreleased features of the Fuel toolchain, you can install the `nightly` toolchain.
+如果您想尝试 Fuel 工具链的未发布功能，可以安装 `nightly` 工具链。
 
-👉 Run the following command to install the `nightly` toolchain:
+👉 运行以下命令安装 `nightly` 工具链：
 
-```sh
+\```sh
 fuelup toolchain install nightly
-```
+\```
 
-If the toolchain was successfully installed, you will see this output:
+如果工具链安装成功，您将看到以下输出：
+
 
 ```sh
 The Fuel toolchain is installed and up to date
 ```
 
-The toolchain was installed correctly, however is not in use yet. Next, you need to configure `fuelup` to use the `nightly` toolchain as the default.
+工具链已正确安装，但尚未启用。接下来，你需要配置 `fuelup` 将 `nightly` 工具链设置为默认工具链。
 
 {/*set_default_testnet:example:start*/}
-👉 Set `nightly` as your default toolchain with the following command:
+👉 使用以下命令将 `nightly` 设置为默认工具链：
 {/*set_default_testnet:example:end*/}
 
 {/*ANCHOR: set_default_testnet_command*/}
@@ -173,24 +174,24 @@ fuelup default nightly
 
 {/*ANCHOR_END: set_default_testnet_command*/}
 
-You will get the following output indicating that you have successfully set `nightly` as your default toolchain.
+你将看到以下输出，表示已成功将 `nightly` 设置为默认工具链。
 
 ```sh
 default toolchain set to nightly
 ```
 
-### Checking your current toolchain
+### 检查当前工具链
 
-Sometimes you might end up using multiple toolchains at once.
-Don't worry if you get confused about which toolchain you are using, since you can check your current toolchain anytime.
+有时你可能会同时使用多个工具链。
+不要担心，如果你对正在使用的工具链感到困惑，可以随时检查你的当前工具链。
 
-👉 Run the `fuelup show` command to see the toolchain and the versions of each tool you are using.
+👉 运行 `fuelup show` 命令查看你正在使用的工具链及各工具的版本。
 
 ```sh
 fuelup show
 ```
 
-This command will give you the following output
+此命令将给出以下输出
 
 ```sh
 active toolchain
@@ -216,28 +217,28 @@ forc : 0.45
 forc-wallet : 0.45
 ```
 
-## Setting up a local wallet
+## 设置本地钱包
 
 {/*forc_wallet_setup:example:start*/}
-The `forc-wallet` plugin is packaged alongside the default distributed toolchains when installed using `fuelup`, so you should already have this installed if you've followed the instructions above.
+`forc-wallet` 插件随默认分发的工具链一起打包安装，因此如果你按照上述说明操作，应该已经安装了它。
 
-To initialize a new wallet with `forc-wallet`, you can run the command below:
+要使用 `forc-wallet` 初始化一个新钱包，可以运行以下命令：
 
 ```console
 forc wallet new
 ```
 
-After typing in a password, be sure to save the mnemonic phrase that is output.
+输入密码后，务必保存输出的助记词。
 
-Next, create a new wallet account with:
+接下来，创建一个新的钱包账户：
 
 ```console
 forc wallet account new
 ```
 
-With this, you'll get a fuel address that looks something like this: `fuel1efz7lf36w9da9jekqzyuzqsfrqrlzwtt3j3clvemm6eru8fe9nvqj5kar8`.
+这样，你将获得一个类似于这样的 Fuel 地址：`fuel1efz7lf36w9da9jekqzyuzqsfrqrlzwtt3j3clvemm6eru8fe9nvqj5kar8`。
 
-If you need to list your accounts, you can run the command below:
+如果你需要列出你的账户，可以运行以下命令：
 
 ```console
 forc wallet accounts
@@ -245,15 +246,15 @@ forc wallet accounts
 
 {/*forc_wallet_setup:example:end*/}
 
-## Installing Rust
+## 安装 Rust
 
 {/*install_rust:example:start*/}
-If you want to develop with the `fuels` Rust SDK, you will need to install Rust on your machine. To install Rust, you can use the `rustup` tool.
+如果你想使用 `fuels` Rust SDK 开发，你需要在你的机器上安装 Rust。要安装 Rust，你可以使用 `rustup` 工具。
 {/*install_rust:example:end*/}
 
-> You don't need to install Rust if you don't plan on using the Rust SDK.
+> 如果你不打算使用 Rust SDK，则无需安装 Rust。
 
-Run the following command in your shell; this downloads and runs `rustup-init.sh`, which in turn downloads and runs the correct version of the `rustup-init` executable for your platform.
+在你的 shell 中运行以下命令；这将下载并运行 `rustup-init.sh`，进而下载并运行适合你平台的 `rustup-init` 可执行文件。
 
 {/*ANCHOR: install_rust_command*/}
 
@@ -261,32 +262,32 @@ Run the following command in your shell; this downloads and runs `rustup-init.sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-{/*ANCHOR: install_rust_command*/}
+{/*ANCHOR_END: install_rust_command*/}
 
-Check the official Rust documentation to get more information on [installing the Rust toolchain](https://www.rust-lang.org/tools/install).
+查看官方 Rust 文档以获取有关 [安装 Rust 工具链](https://www.rust-lang.org/tools/install) 的更多信息。
 
-## What's next?
+## 接下来做什么？
 
-Now you are ready to start building with Fuel.
+现在你已经准备好开始使用 Fuel 进行构建。
 
-👉 Check out the [counter dapp guide](/guides/counter-dapp) to deploy your first smart contract.
+👉 查看 [counter dapp 指南](/guides/counter-dapp) 部署你的第一个智能合约。
 
-## Beyond the basics
+## 超越基础
 
-### Custom toolchains
+### 自定义工具链
 
-You can create your own set of specific versions, this is known as 'custom toolchains'.
+你可以创建一组特定版本的工具链，这称为“自定义工具链”。
 
-👉 Visit the [Fuelup docs](https://install.fuel.network/master/concepts/toolchains.html) to learn how to set up your own custom toolchains.
+👉 访问 [Fuelup 文档](https://install.fuel.network/master/concepts/toolchains.html) 学习如何设置自定义工具链。
 
-### Build from source
+### 从源代码构建
 
-You can always build the Fuel packages from source.
+你可以随时从源代码构建 Fuel 包。
 
-👉 Visit the [Fuelup docs](https://install.fuel.network/master/installation/other.html) to get more details about other types of installation.
+👉 访问 [Fuelup 文档](https://install.fuel.network/master/installation/other.html) 获取有关其他安装类型的更多详细信息。
 
 ### Github Codespaces
 
-It's always possible to run a development environment in the browser.
+你始终可以在浏览器中运行开发环境。
 
-👉 Visit our guide on [Github Codespaces](/guides/installation/codespace) to use the Fuel toolchain in the browser.
+👉 访问我们的 [Github Codespaces 指南](/guides/installation/codespace) 在浏览器中使用 Fuel 工具链。

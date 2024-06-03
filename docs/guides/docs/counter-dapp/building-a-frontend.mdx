@@ -1,41 +1,39 @@
 ---
-title: Building a Frontend
+title: 构建前端
 category: Counter Dapp
 parent:
   label: All Guides
   link: /guides
 ---
+# 构建与您的合约交互的前端
 
-# Building a Frontend to Interact With Your Contract
+要为计数器合约构建前端应用程序，我们将执行以下步骤：
 
-To build a frontend application for the counter contract, we'll do the following:
+1. [**安装 Fuel 浏览器钱包。**](#install-the-fuel-browser-wallet)
+2. [**初始化 React 项目。**](#initialize-a-react-project)
+3. [**安装 `fuels` SDK 依赖。**](#install-the-fuels-sdk-dependency)
+4. [**生成合约类型。**](#generate-contract-types)
+5. [**编写前端代码。**](#modify-the-app)
+6. [**运行项目。**](#run-your-project)
 
-1. [**Install the Fuel Browser Wallet.**](#install-the-fuel-browser-wallet)
-2. [**Initialize a React project.**](#initialize-a-react-project)
-3. [**Install the `fuels` SDK dependency.**](#install-the-fuels-sdk-dependency)
-4. [**Generate contract types.**](#generate-contract-types)
-5. [**Write our frontend code.**](#modify-the-app)
-6. [**Run our project.**](#run-your-project)
-
-## Install the Fuel Browser Wallet
+## 安装 Fuel 浏览器钱包
 
 {/*install_wallet:example:start*/}
-Our frontend application will allow users to connect with a wallet, so you'll need to have a browser wallet installed.
+我们的前端应用程序将允许用户连接钱包，因此您需要安装浏览器钱包。
 
-Before going to the next steps, install the [Fuel Wallet](https://chromewebstore.google.com/detail/fuel-wallet/dldjpboieedgcmpkchcjcbijingjcgok) extension.
+在进行下一步之前，请安装 [Fuel Wallet](https://chromewebstore.google.com/detail/fuel-wallet/dldjpboieedgcmpkchcjcbijingjcgok) 插件。
 
-Once you've setup your wallet, click the "Faucet" button in the wallet to get some testnet tokens.
+设置好钱包后，点击钱包中的 "Faucet" 按钮以获取一些测试网代币。
 {/*install_wallet:example:end*/}
 
-## Initialize a React project
+## 初始化 React 项目
 
-To split our project's contract from frontend code, let's initialize our frontend project: assuming that your terminal is open at your contract's folder `/home/user/path/to/counter-contract` let's go back up one directory.
+为了将项目的合约代码与前端代码分开，让我们初始化前端项目：假设您的终端当前在合约文件夹 `/home/user/path/to/counter-contract` 中，先返回到上一级目录。
 
 ```sh
 cd ..
 ```
-
-Now, initialize a React project with TypeScript using [`Create React App`](https://create-react-app.dev/).
+现在，使用 [`Create React App`](https://create-react-app.dev/) 初始化一个带有 TypeScript 的 React 项目。
 
 <TestAction
 id="create-react-app"
@@ -49,34 +47,34 @@ action={{
 npx create-react-app frontend --template typescript
 ```
 
-The output should be similar to this:
+输出应类似于以下内容：
 
 ```sh
 Success! Created frontend at Fuel/fuel-project/frontend
 ```
 
-You should now have two folders inside your `fuel-project` folder: `counter-contract` and `frontend`.
+现在，您的 `fuel-project` 文件夹中应该有两个文件夹：`counter-contract` 和 `frontend`。
 
 <Box.Centered>
 ![project folder structure](/images/quickstart-folder-structure.png)
 </Box.Centered>
 
-## Install the `fuels` SDK dependency
+## 安装 `fuels` SDK 依赖
 
-The `fuels` package includes all the main tools you need to interact with your Sway programs and the Fuel network.
-The `@fuel-wallet` packages include everything you need to interact with user wallets.
+`fuels` 包含了与 Sway 程序和 Fuel 网络交互所需的所有主要工具。
+`@fuel-wallet` 包含了与用户钱包交互所需的所有工具。
 
-### Installing
+### 安装
 
-Move into the `frontend` folder by running:
+通过运行以下命令进入 `frontend` 文件夹：
 
 ```sh
 cd frontend
 ```
 
-> `fuels` requires Node version {props.nodeVersion}.
+> `fuels` 需要 Node 版本 {props.nodeVersion}。
 
-Install the following packages in your `frontend` folder:
+在 `frontend` 文件夹中安装以下包：
 
 <TestAction
 id="install-deps"
@@ -90,12 +88,12 @@ action={{
 npm install fuels @fuels/react @fuels/connectors @tanstack/react-query
 ```
 
-## Generate contract types
+## 生成合约类型
 
-The `fuels init` command generates a `fuels.config.ts` file that is used by the SDK to generate contract types.
-Use the `contracts` flag to define where your contract folder is located, and the `output` flag to define where you want the generated files to be created.
+`fuels init` 命令会生成一个 `fuels.config.ts` 文件，该文件用于 SDK 生成合约类型。
+使用 `contracts` 标志来定义合约文件夹的位置，使用 `output` 标志来定义生成的文件的创建位置。
 
-Run the command below in your frontend folder to generate the config file:
+在前端文件夹中运行以下命令以生成配置文件：
 
 <TestAction
 id="fuels_config"
@@ -109,11 +107,11 @@ action={{
 npx fuels init --contracts ../counter-contract/ --output ./src/sway-api
 ```
 
-Now that you have a `fuels.config.ts` file, you can use the `fuels build` command to rebuild your contract and generate types.
-Running this command will interpret the output ABI JSON from your contract and generate the correct TypeScript definitions.
-If you see the folder `fuel-project/counter-contract/out` you will be able to see the ABI JSON there.
+现在，您有了一个 `fuels.config.ts` 文件，可以使用 `fuels build` 命令来重新构建合约并生成类型。
+运行此命令将解释合约输出的 ABI JSON 并生成正确的 TypeScript 定义。
+如果您查看 `fuel-project/counter-contract/out` 文件夹，可以看到 ABI JSON 文件。
 
-Inside the `fuel-project/frontend` directory run:
+在 `fuel-project/frontend` 目录中运行：
 
 <TestAction
 id="typegen"
@@ -127,7 +125,7 @@ action={{
 npx fuels build
 ```
 
-A successful process should print and output like the following:
+成功的过程应打印如下输出：
 
 ```sh
 Building..
@@ -136,15 +134,15 @@ Generating types..
 🎉  Build completed successfully!
 ```
 
-Now you should be able to find a new folder `fuel-project/frontend/src/sway-api`.
+现在，您应该能够在 `fuel-project/frontend/src/sway-api` 中找到一个新文件夹。
 
-## Modify the App
+## 修改应用程序
 
-Inside the `frontend/src` folder let's add code that interacts with our contract.
+在 `frontend/src` 文件夹中添加与合约交互的代码。
 
-Because we'll be using `@fuels/react`, first we need to wrap our app with the `FuelProvider` component.
+因为我们将使用 `@fuels/react`，所以首先需要使用 `FuelProvider` 组件包装我们的应用程序。
 
-Add the imports below to the top of your `frontend/src/index.tsx` file and setup a query client:
+在 `frontend/src/index.tsx` 文件的顶部添加以下导入并设置查询客户端：
 
 <TestAction
 id="provider-import"
@@ -162,7 +160,7 @@ action={{
   lineEnd="13"
 />
 
-Next, modify your `frontend/src/index.tsx` file to wrap the `App` component with the `FuelProvider` and `QueryClientProvider` components.
+接下来，修改 `frontend/src/index.tsx` 文件，用 `FuelProvider` 和 `QueryClientProvider` 组件包装 `App` 组件。
 
 <TestAction
 id="fuel-wallet-provider"
@@ -181,7 +179,7 @@ action={{
   lineEnd="27"
 />
 
-Next, change the file `fuel-project/frontend/src/App.tsx` to:
+接下来，将 `fuel-project/frontend/src/App.tsx` 文件更改为：
 
 <TestAction
 id="app-code"
@@ -196,7 +194,8 @@ action={{
   lang="tsx"
 />
 
-Finally, replace the value of the `CONTRACT_ID` variable at the top of your `App.tsx` file with the address of the contract you just deployed.
+最后，将 `App.tsx` 文件顶部的 `CONTRACT_ID` 变量的值替换为您刚刚部署的合约地址。
+
 
 <TestAction
 id="app-contract-id"
@@ -208,10 +207,9 @@ action={{
   useSetData: '  "0x92073699bd78dac70756a9e0e8bca1c7121c7adc4b90570800f0916fe4ac33dd";'
 }}
 />
+## 运行您的项目
 
-## Run your project
-
-Inside the `fuel-project/frontend` directory run:
+在 `fuel-project/frontend` 目录中运行：
 
 <TestAction
 id="start-app"
@@ -226,48 +224,49 @@ npm start
 ```
 
 ```sh
-Compiled successfully!
+编译成功！
 
-You can now view frontend in the browser.
+您现在可以在浏览器中查看 frontend。
 
-  Local:            http://localhost:3000
-  On Your Network:  http://192.168.4.48:3000
+  本地:            http://localhost:3000
+  在您的网络上:  http://192.168.4.48:3000
 
-Note that the development build is not optimized.
-To create a production build, use npm run build.
+请注意，开发构建未经优化。
+要创建生产构建，请使用 npm run build。
 ```
 
-Click the "Connect" button and select the wallet you have installed to connect your wallet.
+点击 "Connect" 按钮并选择您已安装的钱包以连接您的钱包。
 
-Once connected, if there are no funds in your wallet, you will see a link to get testnet funds.
+一旦连接成功，如果您的钱包中没有资金，则会看到一个链接以获取测试网络资金。
 
-If you have testnet ETH on Fuel, you should see the counter value and increment button:
+如果您在 Fuel 上有测试网络 ETH，则应该看到计数器值和增加按钮：
 
 <Box.Centered>
 ![screenshot of the UI](/images/quickstart-frontend.png)
 </Box.Centered>
 
-## You just built a fullstack dapp on Fuel! ⛽
+## 您刚刚在 Fuel 上构建了一个全栈 dapp！ ⛽
 
-[Here is the repo for this project](https://github.com/FuelLabs/docs-hub/tree/master/docs/guides/examples/counter-dapp).
+[这是此项目的存储库](https://github.com/FuelLabs/docs-hub/tree/master/docs/guides/examples/counter-dapp)。
 
-If you run into any problems, a good first step is to compare your code to this repo and resolve any differences.
+如果您遇到任何问题，一个很好的第一步是将您的代码与此存储库进行比较并解决任何差异。
 
-Tweet us [@fuel_network](https://twitter.com/fuel_network) letting us know you just built a dapp on Fuel, you might get invited to a private group of builders, be invited to the next Fuel dinner, get alpha on the project, or something 👀.
+在 Twitter 上 @fuel_network 发推告诉我们您刚刚在 Fuel 上构建了一个 dapp，您可能会被邀请加入构建者的私人群组，受邀参加下一个 Fuel 晚宴，获得项目的 alpha 版，或者其他一些东西 👀。
 
-### Updating The Contract
+### 更新合约
 
-To develop and test faster, we recommend using the [`fuels dev` command](/docs/fuels-ts/fuels-cli) to start a local node and automatically redeploy and generate types for your contract on each change.
+为了更快地开发和测试，我们建议使用 [`fuels dev` 命令](/docs/fuels-ts/fuels-cli) 启动本地节点，并在每次更改时自动重新部署和生成合约类型。
 
-Once you're ready to redeploy your contract to the testnet, here are the steps you should take to get your frontend and contract back in sync:
+一旦您准备好将合约重新部署到测试网络，以下是您应该执行的步骤，以使您的前端和合约重新同步：
 
-- In your frontend directory, re-run this command: `npx fuels build`.
-- In your contract directory, redeploy the contract.
-- In your frontend directory, update the contract ID in your `App.tsx` file.
+- 在您的前端目录中，重新运行此命令：`npx fuels build`。
+- 在您的合约目录中，重新部署合约。
+- 在您的前端目录中，更新 `App.tsx` 文件中的合约 ID。
 
-## Need Help?
+## 需要帮助吗？
 
-Get help from the team by posting your question in the [Fuel Forum](https://forum.fuel.network/).
+通过在 [Fuel 论坛](https://forum.fuel.network/) 上发布您的问题来从团队获取帮助。
+
 
 <TestAction
 id="wait-after-start-app"

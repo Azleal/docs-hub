@@ -1,22 +1,22 @@
 ---
-title: Contract Quickstart
+title: 智能合约快速入门
 category: Contract Quickstart
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Smart Contract Quickstart
+# 智能合约快速入门
 
-Getting started with Fuel as a smart contract developer is as simple as:
+作为智能合约开发者，使用 Fuel 入门非常简单：
 
-1. [Installing](#installation) `fuelup`
-2. [Generating a counter contract](#generating-a-counter-contract)
-3. [Building the contract](#building-the-contract)
-4. [Setting up a local wallet](#setting-up-a-local-wallet)
-5. [Deploying the contract](#deploying-the-contract)
+1. [安装](#安装) `fuelup`
+2. [生成一个计数器合约](#生成一个计数器合约)
+3. [构建合约](#构建合约)
+4. [设置本地钱包](#设置本地钱包)
+5. [部署合约](#部署合约)
 
-## Installation
+## 安装
 
 <TextImport
   file="../installation/index.mdx"
@@ -44,7 +44,7 @@ Getting started with Fuel as a smart contract developer is as simple as:
   commentType="{/*"
 />
 
-### Already have `fuelup` installed?
+### 已经安装 `fuelup`？
 
 <TextImport
   file="../counter-dapp/building-a-smart-contract.mdx"
@@ -52,15 +52,15 @@ Getting started with Fuel as a smart contract developer is as simple as:
   commentType="{/*"
 />
 
-## Generating a counter contract
+## 生成一个计数器合约
 
-Run the command below to generate a counter contract in Sway:
+运行以下命令来生成一个 Sway 计数器合约：
 
 ```sh
 forc template --template-name counter counter-contract
 ```
 
-The contract will be in the `src/main.sw` file.
+合约会在 `src/main.sw` 文件中。
 
 <TextImport
   file="../counter-dapp/building-a-smart-contract.mdx"
@@ -68,21 +68,21 @@ The contract will be in the `src/main.sw` file.
   commentType="{/*"
 />
 
-## Building the contract
+## 构建合约
 
-To build a contract, move inside the `counter-contract` folder:
+要构建合约，进入 `counter-contract` 文件夹：
 
 ```sh
 cd counter-contract
 ```
 
-Next, run the `forc build` command:
+然后运行 `forc build` 命令：
 
 ```sh
 forc build
 ```
 
-## Setting up a local wallet
+## 设置本地钱包
 
 <TextImport
   file="../installation/index.mdx"
@@ -90,11 +90,11 @@ forc build
   commentType="{/*"
 />
 
-You can get test funds using the [faucet](https://faucet-testnet.fuel.network/).
+您可以使用 [faucet](https://faucet-testnet.fuel.network/) 获取测试资金。
 
-## Deploying the contract
+## 部署合约
 
-To deploy the contract to the testnet, you can run:
+要将合约部署到测试网，可以运行：
 
 ```sh
 forc deploy --testnet
@@ -106,11 +106,12 @@ forc deploy --testnet
   commentType="{/*"
 />
 
-## Next Steps
+## 下一步
 
-Ready to learn more? Check out the following resources:
+准备好了解更多了吗？查看以下资源：
 
-- Learn the step-by-step instructions for how to build a full-stack [counter contract dapp](/guides/counter-dapp)
-- Build a full-stack marketplace dapp with the [Intro to Sway](/guides/intro-to-sway) guide
-- Try building with [Predicates](/guides/intro-to-predicates)
-- Read the [Sway docs](/docs/sway)
+- 学习构建完整的 [计数器合约 dapp](/guides/counter-dapp) 的分步指南
+- 通过 [Sway 入门指南](/guides/intro-to-sway) 构建一个全栈市场 dapp
+- 尝试构建 [Predicates](/guides/intro-to-predicates)
+- 阅读 [Sway 文档](/docs/sway)
+

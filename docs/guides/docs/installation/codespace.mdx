@@ -8,19 +8,19 @@ parent:
 
 # Github Codespace
 
-## Introduction
+## 简介
 
-The way to think about [Github Codespaces](https://github.com/features/codespaces) is essentially VSCode in a browser. It’s a remote development environment that is extremely easy to spin up. While not all VS Code plugins are supported, the Sway LSP plugin is supported and works out of the box.
+[Github Codespaces](https://github.com/features/codespaces) 本质上可以被视为浏览器中的 VSCode。它是一个非常容易启动的远程开发环境。虽然并非所有 VS Code 插件都支持，但 Sway LSP 插件支持并且可以开箱即用。
 
-## How to set up for a new repo
+## 如何为新仓库设置
 
-1. Create a `devcontainer.json` file. The easiest way is by navigating to the repo and clicking Code → … → Configure dev container
+1. 创建一个 `devcontainer.json` 文件。最简单的方法是导航到仓库并点击 Code → … → Configure dev container
 
     <Box.Centered>
     ![dev container walkthrough](/images/dev-container.gif)
     </Box.Centered>
 
-2. Edit the file to include the following features:
+2. 编辑文件以包含以下功能：
 
     ```json
     "features": {
@@ -29,7 +29,7 @@ The way to think about [Github Codespaces](https://github.com/features/codespace
     }
     ```
 
-3. Add any plugins that you want to be installed for this repo under “customizations”.
+3. 在 “customizations” 下添加您希望为此仓库安装的任何插件。
 
     ```json
     "customizations": {
@@ -41,33 +41,33 @@ The way to think about [Github Codespaces](https://github.com/features/codespace
     }
     ```
 
-    Here are examples that include the Sway LSP plugin.
+    以下是包括 Sway LSP 插件的示例。
 
     3.1. [`https://github.com/FuelLabs/sway/blob/master/.devcontainer/devcontainer.json`](https://github.com/FuelLabs/sway/blob/master/.devcontainer/devcontainer.json)
 
     3.2. [`https://github.com/FuelLabs/quickstart/blob/master/.devcontainer/devcontainer.json`](https://github.com/FuelLabs/quickstart/blob/master/.devcontainer/devcontainer.json)
 
-## How to start a codespace
+## 如何启动 Codespace
 
-1. Navigate to the repo that has Github Codespaces configured.
-2. Choose Code → Create codespace on master
+1. 导航到已配置 Github Codespaces 的仓库。
+2. 选择 Code → Create codespace on master
 
     <Box.Centered>
     ![Create codespace walkthrough](/images/create-codespace.gif)
     </Box.Centered>
 
-3. This will open a new tab with your codespace. It can take several minutes to start up.
+3. 这将打开一个包含您的 codespace 的新标签页。启动可能需要几分钟。
 
-    3.1.  You now have a fully functional remote development environment with the Fuel toolchain installed! You can use `forc` to build and deploy Sway code, or `fuelup` to manage the toolchain version. You also have the Sway LSP plugin with full feature support for Sway, like syntax highlighting, hover docs, go-to definitions, etc.
+    3.1. 您现在拥有一个功能齐全的远程开发环境，并安装了 Fuel 工具链！您可以使用 `forc` 构建和部署 Sway 代码，或使用 `fuelup` 管理工具链版本。您还拥有 Sway LSP 插件，支持 Sway 的所有功能，如语法高亮、悬停文档、跳转到定义等。
 
-    3.2. Note: if you are working on a large repository and find the codespace is running slow, you can configure it to use a larger instance by clicking Code → … → change machine type on a running instance, or starting a new instance with Code → … → New with options.
+    3.2. 注意：如果您正在处理一个大型仓库并发现 codespace 运行缓慢，可以通过点击 Code → … → change machine type 在运行实例上配置使用更大的实例，或者通过 Code → … → New with options 启动一个新实例。
 
-### Pricing & billing
+### 定价与账单
 
-You will be required to enter billing information, however there is a substantial free tier.
+您需要输入账单信息，但有一个相当大的免费额度。
 
-## What's next?
+## 接下来是什么？
 
-Now you are ready to start building with Fuel.
+现在您已准备好开始使用 Fuel 构建。
 
-👉 Check out the [counter dapp guide](/guides/counter-dapp) to deploy your first smart contract.
+👉 查看 [计数器 dapp 指南](/guides/counter-dapp) 以部署您的第一个智能合约。

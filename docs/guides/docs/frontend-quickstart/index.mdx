@@ -1,20 +1,19 @@
 ---
-title: Frontend Quickstart
+title: 前端快速入门
 category: Frontend Quickstart
 parent:
   label: All Guides
   link: /guides
 ---
+# 前端/全栈快速入门
 
-# Frontend/Fullstack Quickstart
+作为前端或全栈开发人员开始使用 Fuel 就像下面这样简单：
 
-Getting started with Fuel as a frontend or fullstack developer is as simple as:
+1. [安装](#安装) `fuelup`
+2. [生成一个计数器 dapp](#生成一个计数器-dapp)
+3. [在本地运行项目](#在本地运行项目)
 
-1. [Installing](#installation) `fuelup`
-2. [Generating a counter dapp](#generating-a-counter-dapp)
-3. [Running the project locally](#running-the-project-locally)
-
-## Installation
+## 安装
 
 <TextImport
   file="../installation/index.mdx"
@@ -42,7 +41,7 @@ Getting started with Fuel as a frontend or fullstack developer is as simple as:
   commentType="{/*"
 />
 
-### Already have `fuelup` installed?
+### 已经安装了 `fuelup`？
 
 <TextImport
   file="../counter-dapp/building-a-smart-contract.mdx"
@@ -50,9 +49,9 @@ Getting started with Fuel as a frontend or fullstack developer is as simple as:
   commentType="{/*"
 />
 
-## Generating a counter dapp
+## 生成一个计数器 dapp
 
-You can generate a full-stack counter dapp in seconds with the `create fuels` CLI:
+您可以使用 `create fuels` CLI 在几秒钟内生成一个全栈计数器 dapp：
 
 <CodeTabs>
 
@@ -66,15 +65,15 @@ npm create fuels
 
 </CodeTabs>
 
-## Running the project locally
+## 在本地运行项目
 
-Move into the project directory. Assuming you named the project `my-fuel-project`, you can run:
+进入项目目录。假设您将项目命名为 `my-fuel-project`，您可以运行：
 
 ```sh
 cd my-fuel-project
 ```
 
-Next, run the following command to start a local development node:
+接下来，运行以下命令以启动本地开发节点：
 
 <CodeTabs>
 
@@ -88,9 +87,9 @@ npm run fuels:dev
 
 </CodeTabs>
 
-The local endpoint for node will be `http://localhost:4000/graphql`.
+节点的本地端点将为 `http://localhost:4000/graphql`。
 
-Next, open a new terminal in the project directory, and run the following command to start the frontend:
+然后，在项目目录中打开新终端，并运行以下命令以启动前端：
 
 <CodeTabs>
 
@@ -104,20 +103,20 @@ npm run dev
 
 </CodeTabs>
 
-The frontend will be running at [`http://localhost:3000`](http://localhost:3000).
+前端将在 [`http://localhost:3000`](http://localhost:3000) 上运行。
 
-While the local node is running, any changes you make to the Sway contract inside the `sway-contract` folder will automatically trigger several updates:
+当本地节点运行时，您对 `sway-contract` 文件夹中的 Sway 合约进行的任何更改都将自动触发多个更新：
 
-1. The contract gets rebuilt using the `forc build` command.
-2. The contract will be redeployed to the local node using the `forc deploy` command .
-3. New TypeScript types for the contract and a file called `contract-ids.json` with the new contract ID will be generated in the `src/sway-api` folder.
+1. 使用 `forc build` 命令重建合约。
+2. 使用 `forc deploy` 命令将合约重新部署到本地节点。
+3. 合约的新的 TypeScript 类型以及名为 `contract-ids.json` 的文件，其中包含新的合约 ID，将在 `src/sway-api` 文件夹中生成。
 
-This means you don't need to worry about updating the contract ID, ABI, or TypeScript types while you develop.
+这意味着您在开发时不需要担心更新合约 ID、ABI 或 TypeScript 类型。
 
-## Next Steps
+## 下一步
 
-Ready to learn more? Check out the following resources:
+准备好学习更多了吗？查看以下资源：
 
-- Learn the step-by-step instructions for how to build and deploy a full-stack [counter contract dapp](/guides/counter-dapp)
-- Learn more about the [fuels CLI](/docs/fuels-ts/fuels-cli)
-- Learn about [wallet connectors](/docs/wallet/dev/connectors/)
+- 了解逐步构建和部署全栈 [计数器合约 dapp](/guides/counter-dapp) 的说明
+- 了解更多关于 [fuels CLI](/docs/fuels-ts/fuels-cli)
+- 了解 [钱包连接器](/docs/wallet/dev/connectors/)
