@@ -77,7 +77,7 @@ const labelMap = {
 
   reference: '参考',
   'sway libs': 'Sway 库',
-  'compiler intrinsics': 'compiler intrinsics',
+  'compiler intrinsics': '编译器内联函数',
   attributes: '属性',
   'style guide': '风格指南',
   'known issues and workarounds': '已知问题和解决方法',

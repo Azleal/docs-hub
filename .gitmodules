@@ -3,13 +3,13 @@
 	url = https://github.com/fueldev-xyz/sway.git
 [submodule "docs/fuels-rs"]
 	path = docs/fuels-rs
-	url = https://github.com/FuelLabs/fuels-rs.git
+	url = https://github.com/fueldev-xyz/fuels-rs.git
 [submodule "docs/fuel-graphql-docs"]
 	path = docs/fuel-graphql-docs
-	url = https://github.com/FuelLabs/fuel-graphql-docs.git
+	url = https://github.com/fueldev-xyz/fuel-graphql-docs.git
 [submodule "docs/fuels-ts"]
 	path = docs/fuels-ts
-	url = https://github.com/FuelLabs/fuels-ts
+	url = https://github.com/fueldev-xyz/fuels-ts
 	# branch = docs
 [submodule "docs/builds/sway"]
 	path = docs/builds/sway
@@ -17,26 +17,26 @@
 	# branch = gh-pages
 [submodule "docs/fuels-wallet"]
 	path = docs/fuels-wallet
-	url = https://github.com/FuelLabs/fuels-wallet.git
+	url = https://github.com/fueldev-xyz/fuels-wallet.git
 	# branch = release
 [submodule "docs/fuelup"]
 	path = docs/fuelup
-	url = https://github.com/FuelLabs/fuelup.git
+	url = https://github.com/fueldev-xyz/fuelup.git
 [submodule "docs/fuel-specs"]
 	path = docs/fuel-specs
-	url = https://github.com/FuelLabs/fuel-specs.git
+	url = https://github.com/fueldev-xyz/fuel-specs.git
 [submodule "docs/guides/examples/intro-to-sway"]
 	path = docs/guides/examples/intro-to-sway
-	url = https://github.com/FuelLabs/intro-to-sway.git
+	url = https://github.com/fueldev-xyz/intro-to-sway.git
 [submodule "docs/guides/examples/intro-to-predicates"]
 	path = docs/guides/examples/intro-to-predicates
-	url = https://github.com/FuelLabs/intro-to-predicates.git
+	url = https://github.com/fueldev-xyz/intro-to-predicates.git
 [submodule "docs/guides/docs/migration-guide/breaking-change-log"]
 	path = docs/guides/docs/migration-guide/breaking-change-log
-	url = https://github.com/FuelLabs/breaking-change-log
+	url = https://github.com/fueldev-xyz/breaking-change-log
 [submodule "docs/fuel-core"]
 	path = docs/fuel-core
-	url = https://github.com/FuelLabs/fuel-core
+	url = https://github.com/fueldev-xyz/fuel-core
 [submodule "docs/nightly/sway"]
 	path = docs/nightly/sway
 	url = https://github.com/fueldev-xyz/sway.git
@@ -45,22 +45,22 @@
 	url = https://github.com/fueldev-xyz/sway.git
 [submodule "docs/nightly/fuels-rs"]
 	path = docs/nightly/fuels-rs
-	url = https://github.com/FuelLabs/fuels-rs.git
+	url = https://github.com/fueldev-xyz/fuels-rs.git
 [submodule "docs/nightly/fuel-graphql-docs"]
 	path = docs/nightly/fuel-graphql-docs
-	url = https://github.com/FuelLabs/fuel-graphql-docs.git
+	url = https://github.com/fueldev-xyz/fuel-graphql-docs.git
 [submodule "docs/nightly/fuel-specs"]
 	path = docs/nightly/fuel-specs
-	url = https://github.com/FuelLabs/fuel-specs.git
+	url = https://github.com/fueldev-xyz/fuel-specs.git
 [submodule "docs/nightly/fuels-ts"]
 	path = docs/nightly/fuels-ts
-	url = https://github.com/FuelLabs/fuels-ts
+	url = https://github.com/fueldev-xyz/fuels-ts
 [submodule "docs/nightly/fuels-wallet"]
 	path = docs/nightly/fuels-wallet
-	url = https://github.com/FuelLabs/fuels-wallet.git
+	url = https://github.com/fueldev-xyz/fuels-wallet.git
 [submodule "docs/sway-libs"]
 	path = docs/sway-libs
-	url = https://github.com/FuelLabs/sway-libs.git
+	url = https://github.com/fueldev-xyz/sway-libs.git
 [submodule "docs/nightly/sway-libs"]
 	path = docs/nightly/sway-libs
-	url = https://github.com/FuelLabs/sway-libs.git
+	url = https://github.com/fueldev-xyz/sway-libs.git

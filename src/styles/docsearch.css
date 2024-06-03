@@ -316,6 +316,9 @@ html[data-theme='dark'] {
 .DocSearch-Title {
   font-size: 1.2em;
 }
+.DocSearch-Logo {
+  display: none;
+}
 .DocSearch-Logo a {
   display: flex;
 }
