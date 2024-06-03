@@ -1,7 +1,6 @@
 {
   "intro": {
-    "title": "介绍111",
-    "label": "介绍112",
+    "title": "介绍",
     "slug": "intro",
     "repository": "https://github.com/FuelLabs/docs-hub",
     "ogTags": {

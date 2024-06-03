@@ -1,5 +1,6 @@
 import { editLabel } from './editLabel.mjs';
 import { getBreadcrumbs } from './getBreadcrumbs.mjs';
+import { toCnLabel } from './toCnLabel.mjs';
 
 // doc slugs that start with a path in this array
 // won't be capitalized in the navigation sidebar
@@ -232,7 +233,7 @@ function handleLink(
   if (newLabel === 'index' || newLabel === 'README') {
     newLabel = splitSlug[splitSlug.length - 1];
   }
-  const label = editLabel(newLabel, shouldBeLowerCase);
+  const label = toCnLabel(editLabel(newLabel, shouldBeLowerCase));
 
   const breadcrumbs = getBreadcrumbs(
     isGuide,

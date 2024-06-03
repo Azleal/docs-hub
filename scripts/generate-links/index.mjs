@@ -77,8 +77,11 @@ async function main() {
 }
 
 function getSidebarName(key) {
-  let newKey = key + "2ddd";
+  let newKey = key;
   switch (key) {
+    case 'intro':
+      newKey = '介绍';
+      break;
     case 'fuels-rs':
       newKey = 'Rust SDK';
       break;
@@ -95,7 +98,7 @@ function getSidebarName(key) {
       newKey = '规范';
       break;
     case 'sway-libs':
-      newKey = 'Sway Libraries';
+      newKey = 'Sway库';
       break;
     default:
   }
