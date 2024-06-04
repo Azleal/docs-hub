@@ -1,14 +1,14 @@
 ---
-title: Imports
+title: 导入
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Imports
+# 导入
 
-The [Sway standard library](https://fuellabs.github.io/sway/master/std/) provides several utility types and methods we can use in our contract. To import a library, you can use the `use` keyword and `::`, also called a namespace qualifier, to chain library names like this:
+[Sway标准库](https://fuellabs.github.io/sway/master/std/)提供了几种我们可以在合约中使用的实用类型和方法。要导入一个库，您可以使用`use`关键字和`::`，也称为命名空间限定符，链接库名称，如下所示：
 
 <CodeImport
   file="../../examples/intro-to-sway/contract/src/docs_hub_misc.sw"
@@ -17,7 +17,7 @@ The [Sway standard library](https://fuellabs.github.io/sway/master/std/) provide
   lang="sway"
 />
 
-You can also group together imports using curly brackets:
+您还可以使用花括号将导入分组在一起：
 
 <CodeImport
   file="../../examples/intro-to-sway/contract/src/docs_hub_misc.sw"
@@ -26,7 +26,7 @@ You can also group together imports using curly brackets:
   lang="sway"
 />
 
-For this contract, here is what needs to be imported. Copy this to your `main.sw` file:
+对于这个合约，这里是需要导入的内容。将这些内容复制到您的`main.sw`文件中：
 
 <TestAction
 id="sway-import"
@@ -43,4 +43,4 @@ action={{
   lang="sway"
 />
 
-We'll go through what each of these imports does as we use them in the next steps.
+我们将在下一步中逐个介绍这些导入的作用。

@@ -1,16 +1,16 @@
 ---
-title: Errors
+title: 错误
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Defining Error Handling
+# 定义错误处理
 
-Enumerations, commonly referred to as enums, are a type that can represent one of several possible variants. Within our contract, we can employ enums to craft custom error messages, facilitating more precise error handling within functions.
+枚举，通常称为 enums，是一种类型，可以表示多个可能的变体之一。在我们的合约中，我们可以使用 enums 来创建自定义错误消息，从而在函数内实现更精确的错误处理。
 
-Copy the custom error block into your `main.sw` file:
+将自定义错误块复制到你的 `main.sw` 文件中：
 
 <TestAction
 id="sway-errors"
@@ -27,14 +27,15 @@ action={{
   lang="sway"
 />
 
+在我们的合约中，我们可以预料到多种情况会导致我们希望抛出错误并停止交易：
+
+1. 某人可能会尝试使用不正确的货币支付项目。
+2. 个人可能会在没有足够的代币的情况下尝试购买项目。
+3. 除所有者之外的其他人可能会尝试从合约中提取资金。
+
+针对每种情况，我们可以为错误定义特定的返回类型：
+
+- 对于 `IncorrectAssetId` 错误，我们可以返回提交的资产 id，其类型为 `AssetId`。
+- 对于 `NotEnoughTokens` 错误，我们可以将返回类型定义为 `u64`，以指示涉及的代币数量。
+- 对于 `OnlyOwner` 错误，我们可以利用消息发送者的 `Identity` 作为返回值。
 Within our contract, we can anticipate various scenarios where we'd want to throw an error and halt the transaction:
-
-1. Someone might attempt to pay for an item using an incorrect currency.
-2. An individual could try to purchase an item without possessing sufficient coins.
-3. Someone other than the owner might attempt to withdraw funds from the contract.
-
-For each situation, we can define specific return types for the errors:
-
-- For the `IncorrectAssetId` error, we can return the submitted asset id, which is of type `AssetId`.
-- In the case of the `NotEnoughTokens` error, we can define the return type as `u64` to indicate the number of coins involved.
-- For the `OnlyOwner` error, we can utilize the `Identity` of the message sender as the return value.

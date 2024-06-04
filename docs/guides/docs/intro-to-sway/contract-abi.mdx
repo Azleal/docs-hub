@@ -6,11 +6,11 @@ parent:
   link: /guides
 ---
 
-# Defining the ABI
+# 定义 ABI
 
-Next, we will define our ABI. ABI stands for Application Binary Interface. In a Sway contract, it serves as an outline of all the functions within the contract. For each function, you need to specify its name, input types, return types, level of storage access, and if it's payable.
+接下来，我们将定义我们的 ABI。ABI 代表应用程序二进制接口。在 Sway 合约中，它作为合约中所有函数的概要。对于每个函数，你需要指定它的名称、输入类型、返回类型、存储访问级别以及是否可支付。
 
-The ABI for our contract is structured as follows. Write the ABI provided below into your `main.sw` file:
+我们合约的 ABI 结构如下。将下面提供的 ABI 写入你的 `main.sw` 文件中：
 
 <TestAction
 id="sway-abi"
@@ -27,14 +27,15 @@ action={{
   lang="sway"
 />
 
-Don't be worried about understanding the specifics of each function at this moment. We will dive into detailed explanations in the "Functions" section.
+不必担心此刻理解每个函数的具体细节。我们将在“函数”部分详细解释。
 
-## Functions Structure
+## 函数结构
 
-A function is defined using the `fn` keyword. In Sway, snake case is the convention, so instead of naming a function `myFunction`, you would name it `my_function`.
+使用 `fn` 关键字定义函数。在 Sway 中，蛇形命名法是约定俗成的，因此不要将函数命名为 `myFunction`，而应将其命名为 `my_function`。
 
-If the function returns a value, its return type must be defined using a skinny arrow. Additionally, if the function has parameters, their types must also be specified. Semicolons are *required* at the end of each statement.
+如果函数返回一个值，其返回类型必须使用一个细箭头进行定义。此外，如果函数有参数，它们的类型也必须指定。在每个语句的末尾 *必须* 使用分号。
 
-If a function either reads from or writes to storage, you need to specify the access level above the function using annotations like `#[storage(read)]` or `#[storage(read, write)]`.
+如果一个函数从存储器中读取或写入数据，你需要在函数上方使用注解指定访问级别，比如 `#[storage(read)]` 或 `#[storage(read, write)]`。
 
-For functions that are expected to receive funds when called, such as the `buy_item` function, the `#[payable]` annotation is required.
+对于在调用时预期接收资金的函数，比如 `buy_item` 函数，需要使用 `#[payable]` 注解。
+

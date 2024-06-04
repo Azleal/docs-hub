@@ -6,37 +6,37 @@ parent:
   link: /guides
 ---
 
-# Introduction to Sway Language for JavaScript Developers
+# 面向JS开发者的Sway语言简介
 
-If you're familiar with JavaScript and have a basic understanding of blockchain fundamentals, you can swiftly grasp how to build full-stack decentralized applications on Fuel using Sway. Once you get a handle on Sway's essentials, you'll be able to begin building your own dapp.
+如果您熟悉JavaScript并对区块链基础知识有基本了解，您可以迅速掌握如何使用Sway在Fuel上构建全栈去中心化应用程序。一旦掌握了Sway的基本知识，您就可以开始构建自己的dapp了。
 
-Within this tutorial, we will be crafting a Sway contract for an online marketplace similar to Amazon, where:
+在本教程中，我们将为一个类似于亚马逊的在线市场创建一个Sway合约，其中：
 
-1. Sellers can list products.
-2. Buyers can purchase those products.
+1. 卖家可以列出产品。
+2. 买家可以购买这些产品。
 
 <Box.Centered>
 ![intro to sway app](/images/intro-to-sway.gif)
 </Box.Centered>
 
-One of the compelling features of smart contracts is their immutability and permissionless nature. This ensures that no single entity can modify or adjust the rules of the marketplace after its deployment. For instance, once a product is listed in the contract, the deployer cannot suddenly alter its status. Similarly, if a commission amount is hardcoded into the contract, it remains fixed, preventing any changes to the commission charged for products.
+智能合约的一个引人注目的特点是它们的不可变性和无需许可性质。这确保了在部署后，没有任何单一实体可以修改或调整市场规则。例如，一旦产品在合约中列出，部署者就不能突然更改其状态。同样，如果合约中的佣金金额被硬编码，它将保持不变，防止对产品收取的佣金进行任何更改。
 
-Furthermore, the contract remains open for interaction by anyone. This universality allows any individual to engage with the marketplace using their custom frontend without requiring permission.
+此外，合约对任何人都是开放的交互。这种普遍性使得任何个人都可以使用自己的自定义前端与市场进行交互，无需获得许可。
 
-In this tutorial, our attention will be specifically directed towards the `contract` program type. This is just one of the [four program types](/docs/sway/sway-program-types/) inherent to the Sway language.
+在本教程中，我们的注意力将专门集中在`contract`程序类型上。这只是Sway语言固有的[四种程序类型](/docs/sway/sway-program-types/)之一。
 
-## What is Sway?
+## Sway是什么？
 
-Sway is a strongly-typed programming language based on Rust, designed for authoring smart contracts on the Fuel blockchain. It leverages Rust's performance, control, and safety attributes, making it suitable for a blockchain virtual machine environment that's optimized for gas costs and contract security.
+Sway是一种基于Rust的强类型编程语言，专为在Fuel区块链上编写智能合约而设计。它利用了Rust的性能、控制和安全特性，使其适用于一个针对燃料成本和合约安全性进行优化的区块链虚拟机环境。
 
-Sway is bolstered by a robust compiler and toolchain. These tools simplify the complexities and ensure that your code is efficient, secure, and performs optimally.
+Sway得益于强大的编译器和工具链。这些工具简化了复杂性，并确保您的代码高效、安全，并且性能优化。
 
-What truly distinguishes Sway is the exceptional suite of tools built around it. These tools are meticulously designed to convert contracts into full-stack dapps, ensuring a seamless and unparalleled developer experience.
+真正区别于众的是Sway周围出色的工具套件。这些工具经过精心设计，将合约转化为全栈dapp，确保了无缝且无与伦比的开发体验。
 
-📚 [Sway Standard Library](https://fuellabs.github.io/sway/master/std/): A native library equipped with useful types and methods.
+📚 [Sway标准库](https://fuellabs.github.io/sway/master/std/)：配备了有用的类型和方法的本地库。
 
-🧑‍🔧 [Fuelup](https://install.fuel.network/latest/): The official Fuel toolchain manager aids in installing and managing different versions.
+🧑‍🔧 [Fuelup](https://install.fuel.network/latest/)：官方的Fuel工具链管理器，帮助安装和管理不同版本。
 
-🦀 [Fuel's Rust SDK](https://docs.fuel.network/docs/fuels-rs/): Test and interact with your Sway contracts using Rust.
+🦀 [Fuel的Rust SDK](https://docs.fuel.network/docs/fuels-rs/)：使用Rust测试和交互您的Sway合约。
 
-⚡ [Fuel's TypeScript SDK](https://docs.fuel.network/docs/fuels-ts/): Test and interact with your Sway contracts using TypeScript.
+⚡ [Fuel的TypeScript SDK](https://docs.fuel.network/docs/fuels-ts/)：使用TypeScript测试和交互您的Sway合约。

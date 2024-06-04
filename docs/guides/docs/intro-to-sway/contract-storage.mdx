@@ -1,16 +1,16 @@
 ---
-title: Storage
+title: 存储
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Defining The Storage Block
+# 定义存储块
 
-Next, we'll introduce the storage block. This is where you store all persistent state variables in your contract.
+接下来，我们将介绍存储块。这是您在合约中存储所有持久性状态变量的地方。
 
-Variables declared within a function and not saved in the storage block will be discarded once the function completes its execution. Add the storage block below to your `main.sw` file:
+在函数内声明的变量，如果没有保存在存储块中，将在函数执行完成后被丢弃。将下面的存储块添加到您的`main.sw`文件中：
 
 <TestAction
 id="sway-storage"
@@ -27,13 +27,15 @@ action={{
   lang="sway"
 />
 
-The first variable we've stored is `item_counter`, a number initialized to 0. This counter can be used to track the total number of items listed.
+
+我们存储的第一个变量是`item_counter`，一个初始化为0的数字。此计数器可用于跟踪列出的物品的总数。
 
 ## StorageMap
 
-A `StorageMap` is a unique type that permits the saving of key-value pairs within a storage block.
+`StorageMap`是一种允许在存储块中保存键值对的独特类型。
 
-To define a storage map, you need to specify the types for both the key and the value. For instance, in the example below, the key type is `u64`, and the value type is an `Item` struct.
+要定义一个存储映射，您需要指定键和值的类型。例如，在下面的示例中，键类型是`u64`，值类型是一个`Item`结构体。
+
 
 <CodeImport
   file="../../examples/intro-to-sway/contract/src/main.sw"
@@ -42,11 +44,11 @@ To define a storage map, you need to specify the types for both the key and the 
   lang="sway"
 />
 
-Here, we are creating a mapping from the item's ID to the `Item` struct. Using this, we can retrieve information about an item using its ID.
+在这里，我们创建了一个从物品ID到`Item`结构体的映射。使用这个映射，我们可以通过其ID检索有关物品的信息。
 
-## Options
+## 选项
 
-Here, we are defining the `owner` variable as one that can either be `None` or hold an `Identity`.
+在这里，我们将`owner`变量定义为可能是`None`或持有`Identity`的变量。
 
 <CodeImport
   file="../../examples/intro-to-sway/contract/src/main.sw"
@@ -55,4 +57,4 @@ Here, we are defining the `owner` variable as one that can either be `None` or h
   lang="sway"
 />
 
-If you want a value to be potentially null or undefined under specific conditions, you can employ the `Option` type. It's an enum that can take on either `Some(value)` or `None`. The keyword `None` indicates the absence of a value, while `Some` signifies the presence of a stored value.
+如果您希望某个值在特定条件下可能为null或未定义，则可以使用`Option`类型。它是一个枚举，可以取`Some(value)`或`None`。关键字`None`表示没有值，而`Some`表示存储的值的存在。

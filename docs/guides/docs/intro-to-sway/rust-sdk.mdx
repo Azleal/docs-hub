@@ -1,26 +1,27 @@
 ---
-title: Rust Testing
+title: Rust测试
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Testing the contract
+# 测试合约
 
-## Generating a Test Template in Rust
+## 生成 Rust 中的测试模板
 
-To create your own test template using Rust, follow these steps with `cargo-generate` in the contract project directory:
+要在合约项目目录中使用 `cargo-generate` 创建自己的测试模板，请按照以下步骤进行操作：
 
-1. Install `cargo-generate`:
+1. 安装 `cargo-generate`：
 
 ```bash
 cargo install cargo-generate --locked
 ```
 
 {/*markdownlint-disable*/}
-2. Generate the template:
+2. 生成模板：
 {/*markdownlint-disable*/}
+ 
 
 <TestAction
 id="cargo-generate-test"
@@ -40,9 +41,9 @@ cargo generate --init fuellabs/sway templates/sway-test-rs --name sway-store
   commentType="{/*"
 />
 
-## Imports
+## 导入
 
-We will be changing the existing `harness.rs` test file that has been generated. Firstly we need to change the imports. By importing the Fuel Rust SDK you will get majority of the functionalities housed within the prelude.
+我们将更改已生成的现有 `harness.rs` 测试文件。首先，我们需要更改导入。通过导入 Fuel Rust SDK，您将获得大部分功能都包含在预导中。
 
 <TestAction
 id="harness-import"
@@ -59,9 +60,9 @@ action={{
   lang="rust"
 />
 
-Always compile your contracts after making any changes. This ensures you're working with the most recent `contract-abi` that gets generated.
+在进行任何更改后始终编译您的合约。这样可以确保您使用的是最新生成的 `contract-abi`。
 
-Update your contract name and ABI path in the `abigen` macro to match the name of your contract:
+在 `abigen` 宏中更新您的合约名称和 ABI 路径，以匹配您合约的名称：
 
 <TestAction
 id="harness-abi"
@@ -78,11 +79,11 @@ action={{
   lang="rust"
 />
 
-## Initializing Functions
+## 初始化函数
 
-When writing tests for Sway, two crucial objects are required: the contract instance and the wallets that interact with it. This helper function ensures a fresh start for every new test case so copy this into your test file. It will export the deployed contracts, the contract ID, and all the generated wallets for this purpose.
+在为 Sway 编写测试时，需要两个关键对象：合约实例和与之交互的钱包。此辅助函数确保每个新测试案例都有一个新的起点，因此将此函数复制到您的测试文件中。它将为此目的导出已部署的合约、合约 ID 和所有生成的钱包。
 
-Replace the `get_contract_instance` function in your test harness with the function below:
+将您测试用例中的 `get_contract_instance` 函数替换为以下函数：
 
 <TestAction
 id="harness-instance"
@@ -99,14 +100,14 @@ action={{
   lang="rust"
 />
 
-## Test Cases
+## 测试用例
 
-Given the immutable nature of smart contracts, it's important to cover all potential edge cases in your tests.
-Let's delete the example `can_get_contract_id` test case and start writing some test cases at the bottom of our `harness.rs` file.
+考虑到智能合约的不可变性，重要的是在测试中覆盖所有潜在的边缘情况。
+让我们删除示例 `can_get_contract_id` 测试用例，并开始在 `harness.rs` 文件底部编写一些测试用例。
 
-### Setting Owner
+### 设置所有者
 
-For this test case, we use the contract instance and use the SDK's `.with_account()` method. This lets us impersonate the first wallet. To check if the owner has been set correctly, we can see if the address given by the contract matches wallet 1's address. If you want to dig deeper, looking into the contract storage will show if wallet 1's address is stored properly.
+对于此测试用例，我们使用合约实例并使用 SDK 的 `.with_account()` 方法。这使我们能够冒充第一个钱包。要检查所有者是否已正确设置，我们可以查看合约给出的地址是否与钱包 1 的地址匹配。如果您想深入了解，查看合约存储将显示钱包 1 的地址是否已正确存储。
 
 <TestAction
 id="harness-test-set-owner"
@@ -123,10 +124,10 @@ action={{
   lang="rust"
 />
 
-### Setting Owner Once
+### 仅设置一次所有者
 
-An edge case we need to be vigilant about is an attempt to set the owner twice. We certainly don't want unauthorized ownership transfer of our contract! To address this, we've included the following line in our Sway contract: `require(owner.is_none(), "owner already initialized");`
-This ensures the owner can only be set when it hasn't been previously established. To test this, we create a new contract instance: initially, we set the owner using wallet 1. Any subsequent attempt to set the owner with wallet 2 should be unsuccessful.
+我们需要警惕的一个边缘情况是尝试两次设置所有者。我们绝对不希望未经授权的合同所有权转移！为了解决这个问题，我们在 Sway 合同中包含了以下行：`require(owner.is_none(), "owner already initialized");`
+这确保只有在之前未建立所有者时才能设置所有者。为了测试这一点，我们创建一个新的合同实例：最初，我们使用钱包 1 设置所有者。使用钱包 2 进行任何后续尝试设置所有者都应该不成功。
 
 <TestAction
 id="harness-test-set-owner-once"
@@ -143,15 +144,15 @@ action={{
   lang="rust"
 />
 
-### Buying and Selling in the Marketplace
+### 在市场上买卖
 
-It's essential to test the basic functionalities of a smart contract to ensure its proper operation.
-For this test, we have two wallets set up:
+测试智能合约的基本功能是至关重要的，以确保其正常运行。
+对于此测试，我们设置了两个钱包：
 
-1. The first wallet initiates a transaction to list an item for sale. This is done by calling the `.list_item()` method, specifying both the price and details of the item they're selling.
-2. The second wallet proceeds to purchase the listed item using the `.buy_item()` method, providing the index of the item they intend to buy.
+1. 第一个钱包发起交易以列出待售物品。这是通过调用 `.list_item()` 方法完成的，指定要出售的物品的价格和详细信息。
+2. 第二个钱包继续购买列出的物品，使用 `.buy_item()` 方法，提供他们打算购买的物品的索引。
 
-Following these transactions, we'll assess the balances of both wallets to confirm the successful execution of the transactions.
+在执行这些交易后，我们将评估两个钱包的余额，以确认交易成功执行。
 
 <TestAction
 id="harness-test-buy-sell"
@@ -168,9 +169,9 @@ action={{
   lang="rust"
 />
 
-### Withdraw Owner Fees
+### 提取所有者费用
 
-Most importantly, as the creator of the marketplace, you need to ensure you're compensated. Similar to the previous tests, we'll invoke the relevant functions to make an exchange. This time, we'll verify if you can extract the difference in funds.
+最重要的是，作为市场的创建者，您需要确保自己得到了补偿。与之前的测试类似，我们将调用相关函数进行交换。这次，我们将验证是否可以提取资金差额。
 
 <TestAction
 id="harness-test-owner-withdraw"
@@ -187,9 +188,9 @@ action={{
   lang="rust"
 />
 
-## Checkpoint
+## 检查点
 
-If you have followed the previous steps correctly your `harness.rs` test file should look like this:
+如果您已正确执行之前的步骤，则您的 `harness.rs` 测试文件应如下所示：
 
 <CodeImport
   file="../../examples/intro-to-sway/contract/tests/harness.rs"
@@ -198,9 +199,9 @@ If you have followed the previous steps correctly your `harness.rs` test file sh
   lang="rust"
 />
 
-## Running the Tests
+## 运行测试
 
-To run the test located in `tests/harness.rs`, run the command below inside your `contract` folder:
+要运行位于 `tests/harness.rs` 中的测试，请在您的 `contract` 文件夹内运行以下命令：
 
 <TestAction
 id="cargo-test"
@@ -214,10 +215,10 @@ action={{
 cargo test
 ```
 
-If you want to print outputs to the console during tests, use the `nocapture` flag:
+如果您想在测试期间将输出打印到控制台，请使用 `nocapture` 标志：
 
 ```sh
 cargo test -- --nocapture
 ```
 
-Now that we're confident in the functionality of our smart contract, it's time to build a frontend. This will allow users to seamlessly interact with our new marketplace!
+既然我们对智能合约的功能感到自信，现在是时候构建前端了。这将允许用户与我们的新市场无缝交互！

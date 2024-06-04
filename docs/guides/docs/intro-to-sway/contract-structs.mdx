@@ -1,18 +1,19 @@
 ---
-title: Structs
+title: 结构体
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Defining an Item Struct
+# 定义物品结构体
 
-Struct is short for structure, which is a data structure similar to an object in JavaScript. You define a struct with the `struct` keyword in Sway and define the fields of a struct inside curly brackets.
+Struct是structure的缩写，类似于JavaScript中的对象。您可以使用Sway中的`struct`关键字定义结构，并在大括号内定义结构的字段。
 
-The core of our program is the ability to list, sell, and get `items`.
+我们程序的核心是能够列出、出售和获取`items`。
 
-Let's define the Item type as shown below to write into your `main.sw` file:
+让我们将Item类型定义如下所示写入您的`main.sw`文件：
+
 
 <TestAction
 id="sway-struct"
@@ -29,26 +30,26 @@ action={{
   lang="sway"
 />
 
-The item struct will contain an ID, price, the owner's identity, a string representing a URL or identifier for off-chain data about the item (such as its description and photos), and a "total bought" counter to track the overall number of purchases.
+item结构体将包含一个ID、价格、所有者的身份、表示物品的链外数据的URL或标识符（例如其描述和照片），以及一个“总购买”计数器，用于跟踪总购买数量。
 
-## Types
+## 类型
 
-The `Item` struct uses three types: `u64`, `str`, and `Identity`.
+`Item`结构体使用了三种类型：`u64`、`str`和`Identity`。
 
-`u64`: a 64-bit unsigned integer.
+`u64`：64位无符号整数。
 
-In Sway, there are four native types of numbers:
+在Sway中，有四种本机数值类型：
 
-- `u8`: an 8-bit unsigned integer.
-- `u16`: a 16-bit unsigned integer.
-- `u32`: a 32-bit unsigned integer.
-- `u64`: a 64-bit unsigned integer.
-- `u256`: a 256-bit unsigned integer.
+- `u8`：8位无符号整数。
+- `u16`：16位无符号整数。
+- `u32`：32位无符号整数。
+- `u64`：64位无符号整数。
+- `u256`：256位无符号整数。
 
-An unsigned integer means there is no `+` or `-` sign, making the value always positive. `u64` is the default type used for numbers in Sway.
+无符号整数表示没有`+`或`-`符号，使值始终为正。`u64`是Sway中用于数字的默认类型。
 
-In JavaScript, there are two types of integers: `number` and `BigInt`. The primary difference between these types is that `BigInt` can store much larger values. Similarly, each numeric type in Sway has its maximum value that can be stored.
+在JavaScript中，有两种类型的整数：`number`和`BigInt`。这些类型之间的主要区别是`BigInt`可以存储更大的值。类似地，Sway中的每种数值类型都有其可以存储的最大值。
 
-`String Array`: a string is a built-in primitive type in Sway. The number inside the square brackets indicates the size of the string.
+`String Array`：字符串是Sway中的内置原始类型。方括号中的数字表示字符串的大小。
 
-`Identity`: an enum type that represents either a user's `Address` or a `ContractId`. In Sway, a contract and an EOA (Externally Owned Account) are distinctly differentiated. Both are type-safe wrappers for `b256`.
+`Identity`：一种枚举类型，表示用户的`Address`或`ContractId`。在Sway中，合同和EOA（Externally Owned Account）是明确定义的。它们都是对`b256`的类型安全包装。

@@ -1,14 +1,14 @@
 ---
-title: Prerequisites
+title: 先决条件
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Prerequisites
+# 先决条件
 
-## Installation
+## 安装
 
 <TextImport
   file="../installation/index.mdx"
@@ -36,7 +36,7 @@ parent:
   commentType="{/*"
 />
 
-### Already have `fuelup` installed?
+### 已经安装了 `fuelup` 吗？
 
 <TextImport
   file="../counter-dapp/building-a-smart-contract.mdx"
@@ -44,7 +44,7 @@ parent:
   commentType="{/*"
 />
 
-### Fuel Wallet
+### Fuel钱包
 
 <TextImport
   file="../counter-dapp/building-a-frontend.mdx"
@@ -52,16 +52,16 @@ parent:
   commentType="{/*"
 />
 
-Additionally for this guide, ensure you're using Node.js/npm version {props.nodeVersion}.
-You can check your Node.js version with:
+此外，在本指南中，请确保您正在使用 Node.js/npm 版本 {props.nodeVersion}。
+您可以使用以下命令检查您的 Node.js 版本：
 
 ```sh
 node -v
 ```
 
-## Project Setup
+## 项目设置
 
-Start with a new empty folder and name it `fuel-project`.
+从一个空文件夹开始，并将其命名为 `fuel-project`。
 
 <TestAction
 id="create-project-folder"
@@ -75,13 +75,13 @@ action={{
 mkdir fuel-project
 ```
 
-Go into the `fuel-project` folder:
+进入 `fuel-project` 文件夹：
 
 ```sh
 cd fuel-project
 ```
 
-Within your terminal start by creating a new Sway project called `contract`:
+在终端中，首先创建一个名为 `contract` 的新 Sway 项目：
 
 <TestAction
 id="create-contract"
@@ -95,7 +95,7 @@ action={{
 forc new contract
 ```
 
-Your project structure generated from the `forc` command should like this:
+`forc` 命令生成的项目结构应该如下所示：
 
 <TestAction
 id="contract-tree"
@@ -118,15 +118,16 @@ contract
 1 directory, 2 files
 ```
 
-Move into your contract folder:
+
+进入您的合约文件夹：
 
 ```sh
 cd contract
 ```
 
-Open up the `contract` folder in VSCode, and inside the `src` folder you should see a file called `main.sw`. This is where you will write your Sway contract.
+打开 VSCode 中的 `contract` 文件夹，在 `src` 文件夹内，您应该看到一个名为 `main.sw` 的文件。这就是您将编写 Sway 合约的地方。
 
-Since we're creating a brand new contract you can delete everything in this file except for the `contract` keyword.
+由于我们正在创建一个全新的合约，您可以删除该文件中的所有内容，除了 `contract` 关键字。
 
 <TestAction
 id="sway-program-type"
@@ -143,4 +144,4 @@ action={{
   lang="sway"
 />
 
-The first line of the file is specifically reserved to inform the compiler whether we are writing a contract, script, predicate, or library. To designate the file as a contract, use the `contract` keyword.
+文件的第一行专门用于通知编译器我们正在编写的是合约、脚本、断言还是库。要将文件指定为合约，请使用 `contract` 关键字。

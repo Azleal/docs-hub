@@ -1,10 +1,17 @@
 ---
-title: Checkpoint
+title: 检查点
 category: Intro to Sway
 parent:
   label: All Guides
   link: /guides
 ---
+
+
+# 检查点
+
+## Sway 合约检查点
+
+如果你按照之前的步骤正确操作，你的 `main.sw` 市场合约应该如下所示：
 
 # Checkpoint
 
@@ -19,11 +26,12 @@ If you have followed the previous steps correctly your `main.sw` marketplace con
   lang="sway"
 />
 
-## Building the contract
 
-Here's a polished version of your instructions:
+## 构建合约
 
-To format your contract, execute the command:
+以下是精简后的说明：
+
+要格式化你的合约，请执行以下命令：
 
 <TestAction
 id="format-contract"
@@ -37,7 +45,7 @@ action={{
 forc fmt
 ```
 
-To compile your contract, navigate to the contract folder and run:
+要编译你的合约，请转到合约文件夹并运行：
 
 <TestAction
 id="build-contract"
@@ -51,23 +59,24 @@ action={{
 forc build
 ```
 
-Congratulations! You've successfully written a full contract in Sway!
+恭喜！你已成功用 Sway 编写了一个完整的合约！
 
-Post-compilation, the system will automatically generate `abi.json`, `storage_slots.json`, and `contract.bin`. You can locate these files in the following directory:
+编译后，系统将自动生成 `abi.json`、`storage_slots.json` 和 `contract.bin`。你可以在以下目录找到这些文件：
 
 ```sh
 contract/out/debug/*
 ```
 
-## Deploying the contract
+## 部署合约
 
-For detailed steps on deploying this contract, refer to the official Fuel developer counter dapp guide:
-[Deploy the Contract](/guides/counter-dapp/building-a-smart-contract/#deploy-the-contract)
+有关部署此合约的详细步骤，请参阅官方 Fuel 开发人员计数器 DApp 指南：
+[部署合约](/guides/counter-dapp/building-a-smart-contract/#deploy-the-contract)
 
-To deploy, use the following command if you've already set up the forc-wallet and have testnet funds in your account. If not, follow the instructions above.
+要部署，请使用以下命令，如果你已经设置了 forc-wallet 并且在你的账户中有测试网资金。如果没有，请按照上面的说明进行操作。
 
 ```sh
 forc deploy --testnet
 ```
 
-After deploying, you'll be able to find your contract ID in the `contract/out/deployments` folder. You'll need this for frontend integration.
+部署后，你将能够在 `contract/out/deployments` 文件夹中找到你的合约 ID。你将需要这个 ID 进行前端集成。
+
