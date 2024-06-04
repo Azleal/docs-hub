@@ -1,46 +1,47 @@
 ---
-title: Running a Local Node
+title: 运行本地节点
 category: Running a Node
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Running a local Fuel node
+# 运行本地 Fuel 节点
 
-In addition to deploying and testing on the Fuel Testnet, you can also run a local Fuel Node.
+除了在 Fuel 测试网上部署和测试外，您还可以运行本地 Fuel 节点。
 
-There are two types of Fuel networks that can be run:
+有两种类型的 Fuel 网络可以运行：
 
-1. In-memory network (without persistence)
-2. Local network with persistence
+1. 内存中的网络（无状态持久性）
+2. 带有持久性的本地网络
 
-## In-memory local node (without state persistence)
+## 内存中的本地节点（无状态持久性）
 
-An in-memory node does not persist the blockchain state anywhere, it is only stored in memory as long as the node is active and running.
+内存中的节点不会将区块链状态持久保存在任何地方，它仅在节点处于活动和运行状态时存储在内存中。
 
-To spin-up a local in-memory Fuel node download or copy the local snapshot from [here](https://github.com/FuelLabs/chain-configuration/tree/master/local), then run the following command:
+要启动本地内存中的 Fuel 节点，请下载或复制来自[此处](https://github.com/FuelLabs/chain-configuration/tree/master/local)的本地快照，然后运行以下命令：
+
 
 ```sh
 fuel-core run --db-type in-memory --debug --snapshot ./your/path/to/chain_config_folder
 ```
 
-To deploy a contract to the local node, run the following command:
+要将合约部署到本地节点，请运行以下命令：
 
 ```sh
 forc deploy <signing-key> --node-url 127.0.0.1:4000/graphql
 ```
 
-Or to deploy with the default signer that is pre-funded by fuel-core:
+要使用由 fuel-core 预先资助的默认签名者进行部署，请运行以下命令：
 
 ```sh
 forc deploy --default-signer --node-url 127.0.0.1:4000/graphql
 ```
 
-## Chain Configuration
+## 链配置
 
-To modify the initial state of the chain, you must configure the `state_config.json` file in your chain configuration folder.
-Here is an example of what that looks like using version {props.fuelCoreVersion} of `fuel-core`:
+要修改链的初始状态，您必须配置链配置文件夹中的 `state_config.json` 文件。
+以下是使用版本 {props.fuelCoreVersion} 的 `fuel-core` 的示例：
 
 <ConditionalContent versionSet={props.versionSet} showForVersions={["default", "nightly"]}>
   Here is the [specific configuration](https://github.com/FuelLabs/fuel-core/tree/9fddeccb4d112c148f6793bc3d21131a13778a25/bin/fuel-core/chainspec/testnet)
@@ -69,36 +70,36 @@ Here is an example of what that looks like using version {props.fuelCoreVersion}
 
 </ConditionalContent>
 
-To start the node with a custom configuration, you can use the command below:
+要使用自定义配置启动节点，可以使用以下命令：
 
 ```sh
 fuel-core run --snapshot ./your/path/to/chain_config_folder --db-type in-memory --debug
 ```
 
-To find an example chain configuration folder for a specific `fuel-core` version, refer to the [`fuel-core`](https://github.com/FuelLabs/fuel-core/tree/9fddeccb4d112c148f6793bc3d21131a13778a25/bin/fuel-core/chainspec/testnet) repo.
+要查找特定 `fuel-core` 版本的示例链配置文件夹，请参考 [`fuel-core`](https://github.com/FuelLabs/fuel-core/tree/9fddeccb4d112c148f6793bc3d21131a13778a25/bin/fuel-core/chainspec/testnet) 存储库。
 
-### Funding a wallet locally
+### 为本地钱包添加资金
 
-You can edit the `coins` array inside `state_config.json` to modify the initial assets owned by a given address.
+您可以编辑 `state_config.json` 中的 `coins` 数组，以修改给定地址拥有的初始资产。
 
-The `owner` address must be a `B256` type address (begins with `0x`) instead of a `Bech32` type (begins with `fuel`).
+`owner` 地址必须是 `B256` 类型地址（以 `0x` 开头），而不是 `Bech32` 类型地址（以 `fuel` 开头）。
 
-The `amount` is a numerical value. In this example, the value translates to `11,152,921,504 ETH`.
+`amount` 是一个数值。在此示例中，该值转换为 `11,152,921,504 ETH`。
 
-## Local node (with state persistence)
+## 本地节点（带有状态持久性）
 
-This node does persist the blockchain state locally.
-To run a local node with persistence a chain configuration file is required.
+此节点会在本地持久化区块链状态。
+要运行具有持久性的本地节点，需要一个链配置文件。
 
-To start the node, run the following command:
+要启动节点，请运行以下命令：
 
 ```sh
 fuel-core run --ip 127.0.0.1 --port 4000 --snapshot ./your/path/to/chain_config_folder --db-path ./.fueldb --debug
 ```
 
-## Connecting to the local node from a browser wallet
+## 从浏览器钱包连接到本地节点
 
-To connect to the local node using a browser wallet, import the network address as:
+要使用浏览器钱包连接到本地节点，请将网络地址导入为：
 
 ```sh
 http://127.0.0.1:4000/graphql

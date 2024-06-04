@@ -1,14 +1,14 @@
 ---
-title: Running a Testnet Node
+title: 运行Testnet节点
 category: Running a Node
 parent:
   label: Guides
   link: /guides
 ---
 
-# Running a local Fuel node connected to Testnet using P2P
+# 使用P2P运行连接到测试网的本地 Fuel 节点
 
-## Installation
+## 安装
 
 <TextImport
   file="../installation/index.mdx"
@@ -24,9 +24,9 @@ parent:
   trim="true"
 />
 
-To run a `testnet` node, you will need to install the `testnet` toolchain.
+要运行一个 `testnet` 节点，您需要安装 `testnet` 工具链。
 
-You can do this by running the commands below.
+您可以通过运行以下命令来执行此操作。
 
 ```sh
 fuelup toolchain install testnet
@@ -39,12 +39,12 @@ fuelup default testnet
   commentType="{/*"
 />
 
-## Getting a Sepolia (Ethereum Testnet) API Key
+## 获取 Sepolia（以太坊测试网）API 密钥
 
 {/*get_ethereum_api_key:example:start*/}
-An API key from any RPC provider that supports the Sepolia network will work. Relayers will help listen to events from the Ethereum network. We recommend either [Infura](https://www.infura.io/) or [Alchemy](https://www.alchemy.com/)
+任何支持 Sepolia 网络的 RPC 提供者的 API 密钥都可以使用。中继器将帮助监听以太坊网络的事件。我们推荐使用 [Infura](https://www.infura.io/) 或 [Alchemy](https://www.alchemy.com/)
 
-The endpoints should look like the following:
+端点应如下所示：
 {/*get_ethereum_api_key:example:end*/}
 
 ### Infura
@@ -68,13 +68,13 @@ https://eth-sepolia.g.alchemy.com/v2/{YOUR_API_KEY}
 {/*// ANCHOR_END: alchemy_key*/}
 
 {/*get_ethereum_api_key_end:example:start*/}
-Note that using other network endpoints will result in the relayer failing to start.
+请注意，使用其他网络端点将导致中继器无法启动。
 {/*get_ethereum_api_key_end:example:end*/}
 
-## Generating a P2P Key
+## 生成 P2P 密钥
 
 {/*generate_fuel_p2p_key:example:start*/}
-Generate a new P2P key pairing by running the following command:
+通过运行以下命令生成新的 P2P 密钥对：
 {/*generate_fuel_p2p_key:example:end*/}
 
 <ConditionalContent versionSet={props.versionSet} showForVersions={['default', 'nightly']}>
@@ -95,12 +95,14 @@ fuel-core-keygen new --key-type peering
 {/*// ANCHOR_END: generate_fuel_p2p_key_command*/}
 
 {/*generate_fuel_p2p_key_end:example:start*/}
-Make sure you save this somewhere safe so you don't need to generate a new key pair in the future.
+确保您将其安全保存，以便将来无需生成新的密钥对。
 {/*generate_fuel_p2p_key_end:example:end*/}
 
-## Chain Configuration
+## 链配置
 
-To run a local node with persistence, you must have a folder with the following chain configuration files:
+要运行带有持久性的本地节点，您必须拥有以下链配置文件夹：
+
+
 
 <ConditionalContent versionSet={props.versionSet} showForVersions={["default", "nightly"]}>
   Here is the [specific configuration](https://github.com/FuelLabs/fuel-core/tree/9fddeccb4d112c148f6793bc3d21131a13778a25/bin/fuel-core/chainspec/testnet)
@@ -129,10 +131,10 @@ To run a local node with persistence, you must have a folder with the following 
 
 </ConditionalContent>
 
-## Running a Local Node
+## 运行本地节点
 
 {/*running_a_local_node:example:start*/}
-Finally to put everything together to start the node, run the following command:
+最后，将所有内容放在一起以启动节点，运行以下命令：
 {/*running_a_local_node:example:end*/}
 
 <ConditionalContent versionSet={props.versionSet} showForVersions={['default', 'nightly']}>
@@ -158,7 +160,7 @@ fuel-core run \
 </ConditionalContent>
 
 {/*running_a_local_node_end:example:start*/}
-For the full description details of each flag above, run:
+要查看上述每个标志的完整描述详细信息，请运行：
 {/*running_a_local_node_end:example:end*/}
 
 {/*// ANCHOR: fuel_core_help_command*/}
@@ -169,10 +171,10 @@ fuel-core run --help
 
 {/*// ANCHOR_END: fuel_core_help_command*/}
 
-## Connecting to the local node from a browser wallet
+## 从浏览器钱包连接到本地节点
 
 {/*connecting_to_local_node:example:start*/}
-To connect to the local node using a browser wallet, import the network address as:
+要使用浏览器钱包连接到本地节点，请导入网络地址：
 {/*connecting_to_local_node:example:end*/}
 
 {/*// ANCHOR: connecting_to_local_node_endpoint*/}

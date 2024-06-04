@@ -4,7 +4,14 @@ const labelMap = {
   'what is fuel': '什么是Fuel',
   quickstart: '快速开始',
   glossary: '术语表',
+  //指南
   guides: '指南',
+  'contract quickstart': '智能合约快速入门',
+  'frontend quickstart': '前端快速入门',
+  'counter dapp': '计数器dapp',
+  'running a node': '运行节点',
+  'migration guide': '迁移指引',
+  'intro to sway': '面向JS开发者的Sway语言简介',
 
   //sway
   introduction: '介绍',

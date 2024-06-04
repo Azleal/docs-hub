@@ -6,46 +6,47 @@ parent:
   link: /guides
 ---
 
-# Running a Node
+# 运行节点
 
-This guide is designed to swiftly introduce you to the process of running a local node for the Fuel blockchain.
+本指南旨在迅速介绍如何在 Fuel 区块链上运行本地节点的过程。
 
-## What is a Node?
+## 什么是节点？
 
-In the context of the Fuel blockchain, a node, often referred to as a 'client', is a piece of software that downloads and maintains a copy of the Fuel blockchain. It verifies the authenticity of every block and transaction, ensuring that your copy is always up-to-date and in sync with the network.
+在 Fuel 区块链的上下文中，节点通常被称为“客户端”，是一种软件，用于下载和维护 Fuel 区块链的副本。它验证每个区块和交易的真实性，确保您的副本始终保持最新并与网络同步。
 
-For the latest version of the Fuel client, please visit [here](https://github.com/FuelLabs/fuel-core).
+有关最新版本的 Fuel 客户端，请访问[此处](https://github.com/FuelLabs/fuel-core)。
 
-## Understanding the Fuel Network's Beta Testnet Consensus Mechanism
+## 了解 Fuel 网络的测试网共识机制
 
-The Fuel network's beta testnets operates on a Proof of Authority (PoA) consensus mechanism. Here's a brief overview:
+Fuel 网络的测试网运行在权威证明（PoA）共识机制上。以下是简要概述：
 
-**Validators**: In PoA, there are specific entities, known as validators or "authorities", who are given the responsibility to create new blocks and validate transactions. Unlike other consensus mechanisms like Proof of Work (PoW) or Proof of Stake (PoS), where validators are chosen based on computational power or stake, PoA validators are selected based on their reputation and trustworthiness within the network.
+**验证人**：在 PoA 中，有特定的实体，称为验证人或“权威”，负责创建新区块和验证交易。与其他共识机制（如工作量证明（PoW）或股权证明（PoS））不同，其中验证人是基于计算能力或股权选择的，PoA 验证人是基于他们在网络中的声誉和可信度选择的。
 
-**Benefits** of PoA: PoA offers faster transaction times and requires less computational power, making it energy-efficient. The network's security and integrity are maintained by the trustworthiness of the selected validators.
+**PoA 的优势**：PoA 提供更快的交易时间，并且需要更少的计算能力，使其能源效率更高。网络的安全性和完整性由所选验证人的可信度维护。
 
-## Why Run Your Own Node?
+## 为什么要运行自己的节点？
 
-Running your own node provides several advantages:
+运行自己的节点有几个优点：
 
-1. **Query Freedom:** By hosting your own node, you can execute a higher number of queries without encountering any rate limits.
-2. **Network Independence:** Having your own node ensures that you're not reliant on third-party services, giving you full control over your interactions with the Fuel blockchain.
+1. **查询自由**：通过托管自己的节点，您可以执行更多的查询而不会遇到任何速率限制。
+2. **网络独立性**：拥有自己的节点可以确保您不依赖于第三方服务，使您完全控制与 Fuel 区块链的交互。
 
-## Hardware Requirements
+## 硬件要求
 
-|  Hardware  | Minimum  | Recommended |
-|------------|----------|-------------|
-|  Processor |  2 Cores |  8 Cores    |
-|  Memory    |  4 GB    |  12 GB      |
-|  Storage   |  30 GB   |  100 GB     |
+|  硬件      | 最低配置   | 推荐配置    |
+|------------|------------|-------------|
+|  处理器    |  2 核      |  8 核       |
+|  内存      |  4 GB      |  12 GB      |
+|  存储      |  30 GB     |  100 GB     |
 
-For low API traffic, an AWS m5.large should be more than sufficient. However, we recommend an AWS m5.4xlarge instance to match the configuration we use for running the network.
+对于低 API 流量，AWS m5.large 应该完全足够。但是，我们建议使用 AWS m5.4xlarge 实例，以匹配我们用于运行网络的配置。
 
-> For regular tasks such as deploying simple contracts and testing contract interactions locally, there is no need to meet all the hardware requirements below.
+> 对于部署简单合约和本地测试合约交互等常规任务，无需满足下面的所有硬件要求。
 
-## Getting Started
 
-Depending on your requirements, you can opt for one of the following setups:
+## 入门指南
 
-1. [Run a Local Fuel Network Node:](/guides/running-a-node/running-a-local-node) This setup allows you to run a node that operates solely on your local environment.
-2. [Connect to the Testnet Fuel Network:](/guides/running-a-node/running-a-testnet-node) With this setup, your local node will connect and sync with the {props.fuelTestnet} version of the Fuel network.
+根据您的需求，您可以选择以下其中一种设置：
+
+1. [运行本地 Fuel 网络节点：](/guides/running-a-node/running-a-local-node) 这种设置允许您在您的本地环境中运行一个仅在本地操作的节点。
+2. [连接到测试网 Fuel 网络：](/guides/running-a-node/running-a-testnet-node) 使用此设置，您的本地节点将连接并与 Fuel 网络的 {props.fuelTestnet} 版本同步。

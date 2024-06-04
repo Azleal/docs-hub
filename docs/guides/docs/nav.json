@@ -4,7 +4,7 @@
   "counter-dapp": ["编写智能合约", "构建前端"],
   "contract-quickstart": [],
   "frontend-quickstart": [],
-  "running_a_node": ["Running a Local Node", "Running a Testnet Node"],
+  "running_a_node": ["运行本地节点", "运行Testnet节点"],
   "migration_guide": ["Breaking Changes Log"],
   "intro_to_sway": ["Introduction to Sway", "先决条件", "导入", "结构体", "ABI", "存储", "错误", "函数", "检查点", "Rust测试", "Typescript前端", "探索Fuel"],
   "intro_to_predicates": ["Intro to Predicates", "先决条件", "断言根", "断言的局限性", "导入", "配置项", "签名验证", "Main", "检查点", "使用脚本进行调试", "在Rust测试中记录日志", "Rust测试"]
