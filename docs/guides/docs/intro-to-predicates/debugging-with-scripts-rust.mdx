@@ -1,26 +1,26 @@
 ---
-title: Logging in Rust tests
+title: 在Rust测试中记录日志
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
+# 在 Rust 测试中记录日志
 
-# Logging in Rust tests
+## 生成 Rust 测试模板
 
-## Generating a Test Template in Rust
+要使用 Rust 创建你自己的测试模板，请在脚本项目目录中按照以下步骤操作 `cargo-generate`：
 
-To create your own test template using Rust, follow these steps with `cargo-generate` in the script project directory:
-
-1. Install `cargo-generate`:
+1. 安装 `cargo-generate`：
 
 ```bash
 cargo install cargo-generate --locked
 ```
-
 {/*markdownlint-disable*/}
-2. Generate the template:
+2. 生成模板：
 {/*markdownlint-disable*/}
+ 
+ 
 
 <TestAction
 id="cargo-generate-test"
@@ -34,11 +34,12 @@ action={{
 cargo generate --init fuellabs/sway templates/sway-test-rs --name sway-store
 ```
 
-## Logging
+## 记录日志
 
-We previously covered imports and setting up the predicate in an earlier introduction to Sway tutorial, specifically in the [Rust testing section](https://docs.fuel.network/guides/intro-to-sway/rust-sdk/). If you haven't checked that out yet, I highly recommend doing so.
+我们之前在 Sway 教程的介绍中涵盖了导入和设置 predicate，特别是在 [Rust 测试部分](https://docs.fuel.network/guides/intro-to-sway/rust-sdk/)。如果你还没有查看那个部分，我强烈建议你先去看看。
 
-Copy and paste the rust test below:
+复制并粘贴下面的 Rust 测试代码：
+ 
 
 <TestAction
 id="sway-program-type"
@@ -55,19 +56,18 @@ action={{
   lang="sway"
 />
 
-Now, I want to draw your attention to a specific portion of the code here:
-
+现在，我想引起你注意的是代码的特定部分：
+ 
 <CodeImport
   file="../../examples/intro-to-predicates/predicate-script-logging/tests/harness.rs"
   comment="logs"
   commentType="//"
   lang="sway"
 />
+我们现在可以调用 `decode_logs` 来提取我们的秘密数字，这是我们在使用 predicates 进行测试时无法做到的。
 
-We can now call `decode_logs` to extract our secret number, something we weren't able to do when testing with predicates.
-
-To enable print outputs to appear in the console during tests, you can use the `nocapture` flag.
-
+要使测试期间的打印输出出现在控制台中，你可以使用 `nocapture` 标志。
+  
 <TestAction
 id="cargo-test"
 action={{
@@ -80,4 +80,5 @@ action={{
 cargo test -- --nocapture
 ```
 
-Remembering this method is essential when developing more complex predicates, especially as debugging becomes increasingly challenging.
+在开发更复杂的 predicates 时，记住这种方法是至关重要的，特别是当调试变得越来越具有挑战性时。
+

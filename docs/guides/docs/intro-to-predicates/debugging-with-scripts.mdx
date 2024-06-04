@@ -1,24 +1,23 @@
 ---
-title: Debugging with Scripts
+title: 使用脚本进行调试
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
+# 使用脚本进行调试
 
-# Debugging with Scripts
+在开发的各个方面，权衡是不可避免的。正如之前提到的，在处理 predicates 时无法记录日志，因为 predicates 要求是纯粹的。这引出了一个重要问题：我们如何调试 predicates？
 
-In every aspect of development, trade-offs are inevitable. As previously mentioned, logging is not feasible when dealing with predicates, since predicates are required to be pure. This raises an important question: how do we debug predicates?
+Sway 是一种编程语言，它将程序分为四种类型，其中之一是脚本。与 predicates 不同，脚本允许共享逻辑。
 
-Sway, a programming language, categorizes programs into four types, with scripts being one of them. Unlike predicates, scripts allow for shared logic.
-
-Let's move outside our MultiSig project
+让我们离开 MultiSig 项目，
 
 ```sh
 cd ../..
 ```
 
-and create a separate project called `predicate-script-logging`.
+创建一个名为 `predicate-script-logging` 的单独项目。
 
 <TestAction
 id="create-predicate-script-logging"
@@ -32,7 +31,8 @@ action={{
 forc new --predicate predicate-script-logging
 ```
 
-Copy and paste this new predicate in your `src/main.sw`. Attempting to build this predicate will result in an error, indicating that logging is an invalid operation.
+在你的 `src/main.sw` 中复制并粘贴这个新的 predicate。尝试构建这个 predicate 时会导致错误，表明日志记录是无效操作。
+
 
 <CodeImport
   file="../../examples/intro-to-predicates/predicate-test-example/src/main.sw"
@@ -40,8 +40,8 @@ Copy and paste this new predicate in your `src/main.sw`. Attempting to build thi
   commentType="//"
   lang="sway"
 />
+但是，让我们尝试将程序类型从 `predicate` 切换为 `script`。
 
-However, let's try switching the program type from a `predicate` to a `script`.
 
 <CodeImport
   file="../../examples/intro-to-predicates/predicate-script-logging/src/main.sw"
@@ -50,7 +50,7 @@ However, let's try switching the program type from a `predicate` to a `script`.
   lang="sway"
 />
 
-Your code should now look like this:
+你的代码现在应该看起来像这样：
 
 <TestAction
 id="sway-program-type"
@@ -67,7 +67,7 @@ action={{
   lang="sway"
 />
 
-Now, if we attempt to build our script, it should compile without any issues.
+现在，如果我们尝试构建我们的脚本，它应该可以顺利编译。
 
 <TestAction
 id="build-predicate"
@@ -80,5 +80,4 @@ action={{
 ```sh
 forc build
 ```
-
-Next, we'll generate a Rust template to see it in action!
+接下来，我们将生成一个 Rust 模板来看看它的实际效果！

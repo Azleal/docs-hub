@@ -1,14 +1,13 @@
 ---
-title: Checkpoint
+title: 检查点
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
+# 检查点
 
-# Checkpoint
-
-If you have followed the steps properly, your predicate `main.sw` should look like the code below:
+如果你已经正确地完成了所有步骤，你的 predicate `main.sw` 应该如下所示：
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/src/main.sw"
@@ -17,9 +16,9 @@ If you have followed the steps properly, your predicate `main.sw` should look li
   lang="sway"
 />
 
-## Building the predicate
+## 构建 Predicate
 
-To format your contract, execute the command:
+要格式化你的合约，请执行以下命令：
 
 <TestAction
 id="format-predicate"
@@ -33,7 +32,7 @@ action={{
 forc fmt
 ```
 
-To get the predicate root, go to the predicate folder and run:
+要获取 predicate 根哈希，进入 predicate 文件夹并运行：
 
 <TestAction
 id="build-predicate"
@@ -47,10 +46,10 @@ action={{
 forc build
 ```
 
-Your predicate root should be exactly:
+你的 predicate 根哈希应该是：
 
 ```sh
 0x9cdce04cdb323e5982bbd0c07f667c6ea2b97781a8ce6f3e2d96c0e1b5acde73
 ```
+就是这样！你已经创建了你的第一个**无状态**的去中心化应用，而且我们甚至不需要部署它！
 
-That's it! You've created your first **stateless** decentralized application, and we didn't even have to deploy it!

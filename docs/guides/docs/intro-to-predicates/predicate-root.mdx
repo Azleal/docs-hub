@@ -1,15 +1,14 @@
 ---
-title: Predicate Root
+title: 断言根
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
+# 断言根
 
-# Predicate Root
-
-Let's pause here for a moment and build the predicate at the root of the predicate folder.
-
+让我们在这里停顿一下，并在断言文件夹的根目录下构建断言。
+ 
 <TestAction
 id="build-predicate"
 action={{
@@ -22,15 +21,18 @@ action={{
 forc build
 ```
 
-Unlike building a contract, constructing the predicate generates an additional piece of information: an address that is hashed from the predicate code of your templated project, known as the **predicate root**. Since this process is cryptographic, any changes to the code will result in a change in the predicate root.
+与构建合约不同，构建断言会生成额外的信息：从您的模板项目的断言代码中散列出的地址，称为**断言根**。由于这个过程是加密的，对代码的任何更改都将导致断言根的变化。
 
-Since everyone is starting with the exact same templated code, the predicate root should be exactly this:
+由于每个人都从完全相同的模板代码开始，断言根应该完全一样：
+
 
 ```sh
 0x1fb163b15211c39bd54e253a99d29130b2d7de06e0eeefdad6fe0dfc355cf5ec
 ```
 
-Looking at the predicate, you can immediately notice several differences. There is no ABI or implementation, but simply a main function that returns true or false.
+
+观察断言，您可以立即注意到几个不同之处。没有 ABI 或实现，只有一个返回 true 或 false 的主函数。
+
 
 <CodeImport
   file="../../examples/intro-to-predicates/predicate-template/src/main.sw"
@@ -39,6 +41,6 @@ Looking at the predicate, you can immediately notice several differences. There 
   lang="sway"
 />
 
-Notice that we have not "deployed" anything on the Fuel blockchain, yet we already have an address that we can interact with. It is important to remember this:
+请注意，我们尚未在 Fuel 区块链上“部署”任何东西，但我们已经有一个可以进行交互的地址。记住这一点非常重要：
 
-> Predicates are created, not deployed.
+> 断言是创建的，而不是部署的。

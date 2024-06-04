@@ -1,26 +1,26 @@
 ---
-title: Predicate Limitations
+title: 断言的局限性
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Predicate Limitations
+# 断言的局限性
 
-Given that all operations are done off-chain, it's clear there are inherent limitations to the capabilities of a predicate.
+鉴于所有操作都在链下进行，很明显断言的能力存在固有限制。
 
-|                                | Predicates | Contracts |
-|--------------------------------|------------|-----------|
-| Access data on chain           |      ❌     |     ✅     |
-| Read data from smart contracts |      ❌     |     ✅     |
-| Check date or time             |      ❌     |     ✅     |
-| Read block hash or number      |      ❌     |     ✅     |
-| Read input coins               |      ✅     |     ✅     |
-| Read output coins              |      ✅     |     ✅     |
-| Read transaction scripts       |      ✅     |     ✅     |
-| Read transaction bytecode      |      ✅     |     ✅     |
+|                                | 断言        | 合约       |
+|--------------------------------|------------|------------|
+| 访问链上数据                     |      ❌     |     ✅     |
+| 从智能合约读取数据                |      ❌     |     ✅     |
+| 检查日期或时间                   |      ❌     |     ✅     |
+| 读取区块哈希或编号                |      ❌     |     ✅     |
+| 读取输入货币                     |      ✅     |     ✅     |
+| 读取输出货币                     |      ✅     |     ✅     |
+| 读取交易脚本                     |      ✅     |     ✅     |
+| 读取交易字节码                   |      ✅      |     ✅     |
 
-These constraints mean that our MultiSig cannot "approve" interactions with contracts. However, it retains the ability to oversee the flow of funds when the correct wallets are involved.
+这些限制意味着我们的多重签名无法“批准”与合约的交互。然而，它仍然保留了在涉及正确钱包时监督资金流动的能力。
 
-Now that we have a basic understanding of what a predicate is, we can start writing our MultiSig.
+现在我们对断言是什么有了基本的了解，我们可以开始编写我们的多重签名了。

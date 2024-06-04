@@ -1,14 +1,14 @@
 ---
-title: Prerequisites
+title: 先决条件
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Prerequisites
+# 先决条件
 
-## Installation
+## 安装
 
 <TextImport
   file="../installation/index.mdx"
@@ -36,17 +36,17 @@ parent:
   commentType="{/*"
 />
 
-### Already have `fuelup` installed?
+### 已经安装了`fuelup`?
 
 <TextImport
   file="../counter-dapp/building-a-smart-contract.mdx"
   comment="already_installed"
   commentType="{/*"
 />
+## 项目设置
 
-## Project Setup
+从一个新的空文件夹开始，将其命名为 `multisig-predicate`。
 
-Start with a new empty folder and name it `multisig-predicate`.
 
 <TestAction
 id="create-project-folder"
@@ -56,17 +56,17 @@ action={{
 }}
 />
 
-```sh
+\```sh
 mkdir multisig-predicate
-```
+\```
 
-Go into the `multisig-predicate` folder:
+进入 `multisig-predicate` 文件夹。
 
-```sh
+\```sh
 cd multisig-predicate
-```
+\```
 
-Within your terminal start by creating a new sway project called `predicate`:
+在终端中，首先创建一个名为 `predicate` 的新 Sway 项目：
 
 <TestAction
 id="create-predicate"
@@ -76,13 +76,13 @@ action={{
 }}
 />
 
-```sh
+\```sh
 forc new --predicate predicate
-```
+\```
 
-> Tip: Notice the `--predicate` flag, which tells `forc` that you want to create a project based on a **predicate**, rather than the default **contract** program type.
+> 提示：注意 `--predicate` 标志，它告诉 `forc` 您要基于 **断言** 而不是默认的 **合约** 程序类型创建项目。
 
-Your project structure generated from the `forc` command should like this:
+从 `forc` 命令生成的项目结构应该如下所示：
 
 <TestAction
 id="predicate-tree"
@@ -92,23 +92,23 @@ action={{
 }}
 />
 
-```sh
+\```sh
 tree predicate
-```
+\```
 
-```sh
+\```sh
 predicate
 ├── Forc.toml
 └── src
     └── main.sw
 
 1 directory, 2 files
-```
+\```
 
-Move into your predicate folder:
+进入您的断言文件夹。
 
-```sh
+\```sh
 cd predicate
-```
+\```
 
-In VSCode, navigate to the `src` folder within the `predicate` folder, where you will find a file named `main.sw`. This is the file where your Sway predicate will be written.
+在 VSCode 中，导航到 `predicate` 文件夹中的 `src` 文件夹，在那里您将找到一个名为 `main.sw` 的文件。这是您的 Sway 断言将被编写的文件。

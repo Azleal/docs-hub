@@ -1,31 +1,31 @@
 ---
-title: Rust Testing
+title: Rust测试
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
+# 测试断言
 
-# Testing the predicate
-
-Let's jump back into our MultiSig project again!
+让我们再次回到我们的 MultiSig 项目中！
 
 ```sh
 cd ../../multisig-predicate/predicate
 ```
 
-## Generating a Test Template in Rust
+## 在 Rust 中生成测试模板
 
-Again follow these steps with `cargo-generate` in the predicate project directory like we did previously:
+再次在 predicate 项目目录中使用 `cargo-generate` 执行以下步骤：
 
-1. Install `cargo-generate`:
+1. 安装 `cargo-generate`：
+ 
 
 ```bash
 cargo install cargo-generate --locked
 ```
 
 {/*markdownlint-disable*/}
-2. Generate the template:
+2. 生成模板：
 {/*markdownlint-disable*/}
 
 <TestAction
@@ -40,9 +40,9 @@ action={{
 cargo generate --init fuellabs/sway templates/sway-test-rs --name sway-store
 ```
 
-## Imports
+## 导入
 
-Delete the templated code and copy the following imports into your harness file. It's important to pay attention to two main imports: `predicates`, for obvious reasons, and the `ScriptTransactionBuilder`, which we'll use to create transactions. These transactions must be signed before being broadcasted to our local network.
+删除模板代码，并将以下导入复制到您的测试文件中。需要特别注意两个主要的导入：`predicates`，由于明显的原因，以及 `ScriptTransactionBuilder`，我们将用它来创建交易。这些交易必须在广播到本地网络之前进行签名。 
 
 <TestAction
 id="multisig-predicate-test-imports"
@@ -59,7 +59,7 @@ action={{
   lang="rust"
 />
 
-Similar to Rust testing for contracts, we'll import the predicate ABI (Application Binary Interface) to interact with it. Ensure the name of your predicate matches the one you're working with.
+与 Rust 测试合约类似，我们将导入断言 ABI（应用程序二进制接口）来与之进行交互。确保您的断言名称与您正在处理的名称相匹配。
 
 <TestAction
 id="multisig-predicate-test-abi"
@@ -76,9 +76,9 @@ action={{
   lang="rust"
 />
 
-## Setup
+## 设置
 
-If you're familiar with Rust testing for Sway projects, much of the setup will be similar. Copy and paste the `setup_wallets_and_network` function into your harness file.
+如果您熟悉 Rust 对 Sway 项目的测试，那么大部分设置将类似。将 `setup_wallets_and_network` 函数复制粘贴到您的测试文件中。
 
 <TestAction
 id="multisig-predicate-test-setup"
@@ -95,9 +95,9 @@ action={{
   lang="rust"
 />
 
-The three key setup steps include:
+关键设置步骤包括：
 
-1. Configuring the wallets that will act as owners of our multisig, through the configurables you'll see later in the tests.
+1. 配置将作为我们 MultiSig 的所有者的钱包，通过稍后在测试中看到的可配置项。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -107,7 +107,7 @@ The three key setup steps include:
 />
 
 {/*markdownlint-disable*/}
-2. Setting up the default token (zeroth address) and loading some tokens into each wallet.
+2. 设置默认代币（零地址）并将一些代币加载到每个钱包中。
 {/*markdownlint-disable*/}
 
 <CodeImport
@@ -118,7 +118,7 @@ The three key setup steps include:
 />
 
 {/*markdownlint-disable*/}
-3. Preparing the network to broadcast our transaction, enabling us to successfully unlock the tokens from the predicate later.
+3. 准备网络以广播我们的交易，从而成功解锁来自断言的代币。
 {/*markdownlint-disable*/}
 
 <CodeImport
@@ -128,13 +128,13 @@ The three key setup steps include:
   lang="rust"
 />
 
-Since the predicate address is deterministic, we don't need to copy it as we do with smart contracts, which are deployed with a different address each time. We can leverage SDKs to build the predicate, ensuring we're working with the correct address without error!
+由于断言地址是确定性的，因此我们不需要像部署智能合约那样复制它，后者每次都使用不同的地址。我们可以利用 SDK 构建断言，确保我们正在使用正确的地址而不会出错！
 
-## Test Cases
+## 测试用例
 
-### Valid 2 of 3 signatures
+### 有效的 2 of 3 签名
 
-Now, let's review the sequence of actions we'll take to simulate a real-world scenario, copy and paste the first test below and let's break it down step by step:
+现在，让我们回顾一下我们将采取的步骤序列，以模拟真实世界的情况，复制并粘贴以下第一个测试，并逐步进行解释：
 
 <TestAction
 id="multisig-predicate-test-valid-two-of-three"
@@ -151,14 +151,14 @@ action={{
   lang="rust"
 />
 
-1. A group or individuals create their multisig by specifying the wallets that will safeguard the funds.
-2. Funding the predicate.
-3. Extracting the tokens when needed by building a transaction and getting the original wallets to sign it.
-4. Broadcasting the transaction to unlock the funds from the predicate.
+1. 一组或个人通过指定将保护资金的钱包来创建他们的 MultiSig。
+2. 向断言注资。
+3. 在需要时通过构建交易并让原始钱包签名来提取代币。
+4. 广播交易以解锁来自断言的资金。
 
-For step 1, as mentioned earlier, when we configure the number of required signatures (up to 3) and the 3 addresses that will safeguard our funds. Importing the ABI will automatically load a `PredicateNameConfigurable` type. In our case, that will be `MultiSigConfigurables`. There will be a corresponding with_configurable function to help you load each configurable. In our case, `with_REQUIRED_SIGNATURES` and `with_SIGNERS` are both loaded in!
+对于第 1 步，如前所述，当我们配置所需签名数（最多 3 个）和将保护我们资金的 3 个地址时。导入 ABI 将自动加载一个 `PredicateNameConfigurable` 类型。在我们的情况下，将加载相应的 `with_configurable` 函数来帮助您加载每个可配置项。在我们的情况下，`with_REQUIRED_SIGNATURES` 和 `with_SIGNERS` 都已加载！
 
-How convenient!
+多么方便啊！
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -167,7 +167,7 @@ How convenient!
   lang="rust"
 />
 
-Next, we'll load our original predicate binary with our new configurables to generate our personalized predicate instance. Simply input your configurables using the `with_configurables` function, and this will give us a unique predicate root based on our inputs.
+接下来，我们将使用我们的新配置加载我们的原始断言二进制文件，以生成我们的个性化断言实例。只需使用 `with_configurables` 函数输入您的配置项即可，这将为我们提供基于我们的输入的唯一断言根。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -176,7 +176,7 @@ Next, we'll load our original predicate binary with our new configurables to gen
   lang="rust"
 />
 
-For step 2, transferring funds to our newly generated predicate root is as straightforward as any other blockchain transfer.
+对于第 2 步，向我们新生成的断言根转移资金与任何其他区块链转移一样简单。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -185,7 +185,7 @@ For step 2, transferring funds to our newly generated predicate root is as strai
   lang="rust"
 />
 
-In step 3, when the multisig holders decide to use the locked funds, we build a transaction specifying the inputs and outputs. Pay close attention to the outputs; we need to specify where the tokens from the predicate are going, which native asset they involve, and the amount. We're essentially extracting a portion of the original base asset sent into the predicate.
+在第 3 步中，当 MultiSig 持有者决定使用锁定的资金时，我们构建一个交易来指定输入和输出。请特别注意输出；我们需要指定来自断言的代币去向、它们涉及的本机资产以及金额。我们实质上是从原始基础资产中提取一部分到断言。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -194,7 +194,7 @@ In step 3, when the multisig holders decide to use the locked funds, we build a 
   lang="rust"
 />
 
-The correct wallet addresses configured in the configurables must sign the transactions. This information, loaded as witness data, will evaluate our predicate to true. It's crucial to provide enough correct, unique signatures; otherwise, the transaction will fail, as demonstrated in later tests. Since our test only requires 2 signatures, we need to provide just those.
+配置中配置的正确钱包地址必须签署交易。这些信息作为见证数据加载，将评估我们的断言为真。提供足够的正确、唯一的签名非常重要；否则，交易将失败，如后续测试所示。由于我们的测试仅需要 2 个签名，因此我们只需要提供这些签名。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -203,7 +203,7 @@ The correct wallet addresses configured in the configurables must sign the trans
   lang="rust"
 />
 
-After the evaluation is correctly done, all we need to do is broadcast the transaction, and the requested funds should return to wallet 1.
+在确认评估正确后，我们需要做的就是广播交易，请求的资金应该返回到钱包 1。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -212,9 +212,9 @@ After the evaluation is correctly done, all we need to do is broadcast the trans
   lang="rust"
 />
 
-### Valid unordered 3 of 3 signatures
+### 无序的有效 3 of 3 签名
 
-The setup for the second test, `multisig_mixed_three_of_three`, follows the same scheme, showcasing that the transaction signing can be done in any order by valid wallets.
+第二个测试 `multisig_mixed_three_of_three` 的设置遵循相同的方案，展示了交易签名可以由有效的钱包以任何顺序完成。
 
 <TestAction
 id="multisig-predicate-test-valid-3-of-3"
@@ -231,9 +231,9 @@ action={{
   lang="rust"
 />
 
-### Insufficient valid Signatures
+### 不足的有效签名
 
-The same principle applies to the third test, `multisig_not_enough_signatures_fails`, where the transaction will fail if there aren't enough signatures.
+相同的原则适用于第三个测试 `multisig_not_enough_signatures_fails`，如果签名不足，则交易将失败。
 
 <TestAction
 id="multisig-predicate-test-insufficient-1-of-3"
@@ -250,9 +250,9 @@ action={{
   lang="rust"
 />
 
-## Checkpoint
+## 检查点
 
-If you have followed the previous steps correctly, your `harness.rs` test file should look like this:
+如果您正确地按照先前的步骤操作，您的 `harness.rs` 测试文件应如下所示：
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/tests/harness.rs"
@@ -261,9 +261,9 @@ If you have followed the previous steps correctly, your `harness.rs` test file s
   lang="rust"
 />
 
-## Running the Tests
+## 运行测试
 
-To run the test located in `tests/harness.rs`, use:
+要运行位于 `tests/harness.rs` 中的测试，请使用：
 
 <TestAction
 id="cargo-test"
@@ -277,12 +277,12 @@ action={{
 cargo test
 ```
 
-If you want to print outputs to the console during tests, use the `nocapture` flag:
+如果您想在测试期间将输出打印到控制台，请使用 `nocapture` 标志：
 
 ```sh
 cargo test -- --nocapture
 ```
 
-Congratulations on making it this far! We've confirmed that our Multisig works.
+祝贺您取得了如此进展！我们已确认我们的 MultiSig 可以正常工作。
 
-Predicates aren't meant to be intimidating. State-minimized DeFi applications should be the standard, rather than resorting to gas golfing or writing assembly code for these optimizations. Now that you have predicates in your toolbox, go out and explore what other state-minimized DeFi applications you can build!
+断言不应该让人望而却步。状态最小化的 DeFi 应用应该是标准，而不是通过气体竞赛或编写汇编代码来进行这些优化。现在您的工具箱中有了断言，请继续探索您可以构建的其他状态最小化的 DeFi 应用！

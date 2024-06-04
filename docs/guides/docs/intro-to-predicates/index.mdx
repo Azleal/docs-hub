@@ -5,30 +5,26 @@ parent:
   label: All Guides
   link: /guides
 ---
+# Predicates 101: 构建无状态的 DeFi 应用
 
-# Predicates 101: Building Stateless DeFi Applications
+Predicates 是 Fuel 的无状态账户抽象方法。在区块链领域，我们不断面临状态膨胀的指数级增长，这在长期内是不可持续的。在以太坊生态系统中，每个部署的合约都需要在区块链上无限期地存储状态。为了帮助区块链扩展性，我们需要考虑不同的方法来重新定义对去中心化金融世界至关重要的状态最小化应用。
 
-Predicates are Fuel's approach to stateless account abstraction. In the blockchain space, we are constantly faced with the exponential growth of state bloat that just isn't sustainable in the long term.
-In the Ethereum ecosystem, every contract deployed requires state storage on the blockchain indefinitely.
-To help with blockchain scalability, we need to consider different approaches to redefine state-minimized applications that are fundamental to the world of decentralized finance.
+本教程将专注于 `predicate` 程序类型，这是 Sway 语言中的[四种程序类型](/docs/sway/sway-program-types/)之一，以及我们如何解决这一日益严重的问题。
 
-This tutorial will specifically concentrate on the `predicate` program type, one of the [four program types](/docs/sway/sway-program-types/) in the Sway language and how we can solve this ever growing problem.
+## 什么是 Predicates？
 
-## What are Predicates?
+一句话定义 Predicates：
 
-To define Predicates into one sentence:
+> Predicates 是返回 **true** 或 **false** 的 **无状态** 程序。
 
-> Predicates are **stateless** programs that return **true** or **false**.
+Predicate 由一个 Address 类型表示，与由私钥创建的任何 EOA（外部拥有账户）相同。程序的字节码可以确定性地哈希并表示为普通地址，所有这些都在链下计算。因此，当这个地址包含资产时，如果任何人能够评估 predicate 为真，他们都可以花费锁定在 predicate 后面的资产。可以将代码视为钱包的私钥，这可能会有所帮助。
 
-A predicate is represented by an Address type, identical to any EOA (Externally Owned Account) created by a private key. The bytecode of the program can be deterministically hashed and represented as an ordinary address, all calculated off-chain.
-Therefore, when this address contains assets, ANYONE can spend the assets locked behind the predicate if they can evaluate the predicate to be true. It might be helpful to think of the code as the private key to the wallet.
+如果这个概念仍然有些不清楚，不用担心！让我们在项目设置的下一部分中探索一个简单的例子。
 
-If this concept is still a bit unclear don't worry!, let's explore a simple example in the next part of the project setup.
+📚 [Sway 标准库](https://fuellabs.github.io/sway/master/std/): 一个配备有用类型和方法的原生库。
 
-📚 [Sway Standard Library](https://fuellabs.github.io/sway/master/std/): A native library equipped with useful types and methods.
+🧑‍🔧 [Fuelup](https://install.fuel.network/latest/): 官方的 Fuel 工具链管理器，帮助安装和管理不同版本。
 
-🧑‍🔧 [Fuelup](https://install.fuel.network/latest/): The official Fuel toolchain manager aids in installing and managing different versions.
+🦀 [Fuel 的 Rust SDK](https://docs.fuel.network/docs/fuels-rs/): 使用 Rust 测试和交互您的 Sway 合约。
 
-🦀 [Fuel's Rust SDK](https://docs.fuel.network/docs/fuels-rs/): Test and interact with your Sway contracts using Rust.
-
-⚡ [Fuel's TypeScript SDK](https://docs.fuel.network/docs/fuels-ts/): Test and interact with your Sway contracts using TypeScript.
+⚡ [Fuel 的 TypeScript SDK](https://docs.fuel.network/docs/fuels-ts/): 使用 TypeScript 测试和交互您的 Sway 合约。

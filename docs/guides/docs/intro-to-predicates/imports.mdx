@@ -1,14 +1,14 @@
 ---
-title: Imports
+title: 导入
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
 
-# Imports
+# 导入
 
-The predicate keyword is used to identify that the program is a predicate.
+`predicate` 关键字用于标识程序是一个 predicate。
 
 <TestAction
 id="sway-program-type"
@@ -25,7 +25,8 @@ action={{
   lang="sway"
 />
 
-We're going to utilize the [Sway standard library](https://github.com/FuelLabs/sway/tree/master/sway-lib-std) in our predicate. Delete the template code except for the predicate keyword and copy in the imports below:
+我们将在 predicate 中使用 [Sway 标准库](https://github.com/FuelLabs/sway/tree/master/sway-lib-std)。删除模板代码，保留 `predicate` 关键字，并复制以下导入：
+ 
 
 <TestAction
 id="sway-import"
@@ -42,9 +43,10 @@ action={{
   lang="sway"
 />
 
-## Transactions
+## 交易
 
-To construct the MultiSig, it's essential for us to obtain three specific components from the transaction through the standard library:
+为了构建 MultiSig，我们需要通过标准库获取交易中的三个特定组件：
+ 
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/src/main.sw"
@@ -53,13 +55,14 @@ To construct the MultiSig, it's essential for us to obtain three specific compon
   lang="sway"
 />
 
-1. Transaction Witness Data: We'll use this to attach signatures on the transaction.
-2. Transaction Witness Count: This will help us determine the number of signatures attached.
-3. Transaction ID: The hash of the transaction.
+1. 交易见证数据：我们将使用它来附加交易的签名。
+2. 交易见证计数：这将帮助我们确定附加的签名数量。
+3. 交易 ID：交易的哈希值。
 
-## Constants
+## 常量
 
-From the constants library, we'll be using `ZERO_B256` as a placeholder.
+从常量库中，我们将使用 `ZERO_B256` 作为占位符。
+
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/src/main.sw"
@@ -68,9 +71,10 @@ From the constants library, we'll be using `ZERO_B256` as a placeholder.
   lang="sway"
 />
 
-## Signatures
+## 签名
 
-We'll need `b512` because signatures are of type `b512`.
+我们需要 `b512`，因为签名是 `b512` 类型。
+
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/src/main.sw"
@@ -79,15 +83,14 @@ We'll need `b512` because signatures are of type `b512`.
   lang="sway"
 />
 
-## Elliptical Curve
+## 椭圆曲线
 
-Lastly, we will be using `ec_recover_address`, short for elliptical curve recovery address. It's a function that allows us to cryptographically recover the address that signed a piece of data:
+最后，我们将使用 `ec_recover_address`，即椭圆曲线恢复地址的缩写。它是一个允许我们加密恢复签名数据地址的函数：
 
 ```rust
 signing_address = ec_recover_address(signed_data, original_data)
 ```
-
-This step is crucial for safeguarding the funds and ensuring that only the correct wallets can provide the necessary signatures.
+这一步对于保护资金并确保只有正确的钱包可以提供必要的签名至关重要。
 
 <CodeImport
   file="../../examples/intro-to-predicates/multisig-predicate/src/main.sw"

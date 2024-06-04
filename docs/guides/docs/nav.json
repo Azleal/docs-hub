@@ -1,11 +1,11 @@
 {
   "menu": ["Contract Quickstart", "Frontend Quickstart", "Counter Dapp", "Running a Node", "Installation", "Migration Guide", "Intro to Sway"],
   "installation": ["Fuel Github Codespace"],
-  "counter-dapp": ["Building a Smart Contract", "Building a Frontend"],
+  "counter-dapp": ["编写智能合约", "构建前端"],
   "contract-quickstart": [],
   "frontend-quickstart": [],
   "running_a_node": ["Running a Local Node", "Running a Testnet Node"],
   "migration_guide": ["Breaking Changes Log"],
   "intro_to_sway": ["Introduction to Sway", "Prerequisites", "Imports", "Structs", "ABI", "Storage", "Errors", "Functions", "Checkpoint", "Rust Testing", "Typescript Frontend", "Explore Fuel"],
-  "intro_to_predicates": ["Introduction to Sway", "Prerequisites", "Predicate Root", "Predicate Limitations", "Imports", "Configurables", "Signature Verification", "Main", "Checkpoint", "Debugging with Scripts", "Logging in Rust tests", "Rust Testing"]
+  "intro_to_predicates": ["Introduction to Sway", "先决条件", "断言根", "断言的局限性", "导入", "配置项", "签名验证", "Main", "检查点", "使用脚本进行调试", "在Rust测试中记录日志", "Rust测试"]
 }

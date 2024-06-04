@@ -1,16 +1,16 @@
 ---
-title: Signature Verification
+title: 签名验证
 category: Intro to Predicates
 parent:
   label: All Guides
   link: /guides
 ---
 
-## Signature Verification
+## 签名验证
 
-Let's define a helper function called `verify_signatures()` that checks the validity of each signature provided and rejects any that are invalid, ensuring all signatures are unique.
+让我们定义一个名为 `verify_signatures()` 的辅助函数，它检查提供的每个签名的有效性，并拒绝任何无效的签名，确保所有签名都是唯一的。
 
-Copy the signature verification helper function in your main.sw below:
+将签名验证辅助函数复制到您的 main.sw 中：
 
 <TestAction
 id="sway-function"
@@ -27,15 +27,15 @@ action={{
   lang="sway"
 />
 
-As mentioned earlier, we will utilize the transaction witnesses and the transaction hash to verify each signature, matching them to the wallets that were previously configured.
+如前所述，我们将利用交易见证和交易哈希来验证每个签名，将它们与之前配置的钱包进行匹配。
 
-1. Parameter `i`: This parameter represents the index of a signer in a predefined list of signers defined in the configurable. It's used to identify which signer's signature the function is currently attempting to verify.
+1. 参数 `i`：此参数表示预定义的签名者列表中的一个签名者的索引，该列表在可配置项中定义。它用于识别函数当前正在尝试验证的签名者的签名。
 
-2. Signature Verification Loop: The function then enters a loop, iterating up to three times. This loop represents an attempt to verify the signature against up to three pieces of witness data (signatures) attached to the transaction.
+2. 签名验证循环：然后，函数进入一个循环，迭代至多三次。此循环表示尝试根据附加到交易的最多三个见证数据（签名）来验证签名。
 
-   - Signature Recovery: Inside the loop, for each iteration defined by `j`, it retrieves the current signature (`current_signature`) from the transaction's witness data using `tx_witness_data::<B512>(j)`. It then attempts to recover the address that generated this signature (`current_address`) by using the `ec_recover_address` function, which takes the current signature and the transaction hash as inputs.
+   - 签名恢复：在循环内，对于由 `j` 定义的每次迭代，它使用 `tx_witness_data::<B512>(j)` 从交易的见证数据中检索当前签名（`current_signature`）。然后，它尝试使用 `ec_recover_address` 函数从当前签名和交易哈希作为输入来恢复生成此签名的地址（`current_address`）。
 
-   - Address Matching: After recovering the address, the function checks if this address matches the address of the `i`th signer in the `SIGNERS` list. If a match is found, it means the signature from one of the signers has been successfully verified, and the function returns `1`.
+   - 地址匹配：在恢复地址后，函数检查此地址是否与 `SIGNERS` 列表中第 `i` 个签名者的地址匹配。如果找到匹配项，则意味着成功验证了一个签名者的签名，并且函数返回 `1`。
 
   <CodeImport
     file="../../examples/intro-to-predicates/multisig-predicate/src/main.sw"
@@ -45,7 +45,7 @@ As mentioned earlier, we will utilize the transaction witnesses and the transact
   />
 
 {/*markdownlint-disable*/}
-3. Return Value: The function returns `1` if a matching signature is found for the `i`th signer, indicating successful verification. If no matching signature is found after checking up to three signatures, the function returns `0`, indicating that the signature for the `i`th signer could not be verified.
+3. 返回值：如果找到了第 `i` 个签名者的匹配签名，则函数返回 `1`，表示验证成功。如果在检查最多三个签名后找不到匹配的签名，则函数返回 `0`，表示无法验证第 `i` 个签名者的签名。
 {/*markdownlint-disable*/}
 
-This allows for flexible signature verification, accommodating scenarios where signatures from the required signers can be presented in any order and ensuring that each signature is uniquely accounted for without allowing duplicates from the same wallet.
+这样可以灵活地进行签名验证，适应了签名者可以以任何顺序呈现所需签名的情况，并确保每个签名都被唯一地记录，而不允许来自同一钱包的重复签名。
