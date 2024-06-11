@@ -226,6 +226,10 @@ const labelMap = {
   'transfer all assets': '转移所有资产',
   'function selector': '函数选择器',
   'tests structure': '集成测试结构',
+
+  // graphQL
+
+  'how to use graphql': '如何使用GraphQL',
 };
 
 export function toCnLabel(label: string) {
