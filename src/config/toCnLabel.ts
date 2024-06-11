@@ -230,6 +230,9 @@ const labelMap = {
   // graphQL
 
   'how to use graphql': '如何使用GraphQL',
+
+  //forc
+  workspaces: '工作区',
 };
 
 export function toCnLabel(label: string) {
