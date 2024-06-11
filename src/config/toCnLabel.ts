@@ -233,6 +233,12 @@ const labelMap = {
 
   //forc
   workspaces: '工作区',
+
+  //
+  'tx format': '交易格式',
+  protocol: '协议',
+  networks: '网络',
+  tests: '测试',
 };
 
 export function toCnLabel(label: string) {
