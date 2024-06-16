@@ -1,9 +1,9 @@
 import { cssObj } from '@fuel-ui/css';
 import { Box, ButtonLink } from '@fuel-ui/react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import GithubLogo from 'public/icons/github.svg';
 import type { VersionSet } from '../types';
-import VersionDropdown from './VersionDropdown';
-
 const ThemeToggler = dynamic(() => import('./ThemeToggler'), { ssr: false });
 
 export function Navigation({ versionSet }: { versionSet: VersionSet }) {
@@ -11,15 +11,21 @@ export function Navigation({ versionSet }: { versionSet: VersionSet }) {
     <Box.Stack direction='row' gap='$3'>
       <ButtonLink
         size='sm'
-        href={'https://forum.fuel.network/'}
+        href={'https://fueldevcn.xyz/'}
         intent='base'
         css={styles.navItem}
-        leftIcon={'HelpCircle'}
         isExternal
       >
-        Forum
+        Fuel中文社区
       </ButtonLink>
-      <VersionDropdown versionSet={versionSet} />
+      <ButtonLink
+        size={'sm'}
+        href='https://github.com/fueldev-xyz/docs-hub/'
+        target='_blank'
+      >
+        <Image width={24} height={24} src={GithubLogo} alt='github' />
+      </ButtonLink>
+      {/* <VersionDropdown versionSet={versionSet} /> */}
       <ThemeToggler />
     </Box.Stack>
   );
