@@ -860,8 +860,8 @@
             },
             {
               "name": "comment.block.code.ballerina.documentation",
-              "begin": "\\```",
-              "end": "\\```"
+              "begin": "\```",
+              "end": "\```"
             },
             {
               "name": "comment.block.code.ballerina.documentation",

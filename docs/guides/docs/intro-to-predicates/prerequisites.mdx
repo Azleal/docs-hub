@@ -56,15 +56,15 @@ action={{
 }}
 />
 
-\```sh
+```sh
 mkdir multisig-predicate
-\```
+```
 
 进入 `multisig-predicate` 文件夹。
 
-\```sh
+```sh
 cd multisig-predicate
-\```
+```
 
 在终端中，首先创建一个名为 `predicate` 的新 Sway 项目：
 
@@ -76,9 +76,9 @@ action={{
 }}
 />
 
-\```sh
+```sh
 forc new --predicate predicate
-\```
+```
 
 > 提示：注意 `--predicate` 标志，它告诉 `forc` 您要基于 **断言** 而不是默认的 **合约** 程序类型创建项目。
 
@@ -92,23 +92,23 @@ action={{
 }}
 />
 
-\```sh
+```sh
 tree predicate
-\```
+```
 
-\```sh
+```sh
 predicate
 ├── Forc.toml
 └── src
     └── main.sw
 
 1 directory, 2 files
-\```
+```
 
 进入您的断言文件夹。
 
-\```sh
+```sh
 cd predicate
-\```
+```
 
 在 VSCode 中，导航到 `predicate` 文件夹中的 `src` 文件夹，在那里您将找到一个名为 `main.sw` 的文件。这是您的 Sway 断言将被编写的文件。
