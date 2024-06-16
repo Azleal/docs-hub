@@ -284,8 +284,8 @@ function handleNewURLs(
     }
     if (newURL.includes('docs.fuel.network')) {
       newURL = newURL
-        .replace('fuel.network/forc', 'fuel.network/docs/forc')
-        .replace('fuel.network/sway', 'fuel.network/docs/sway');
+        .replace('fuel.network/forc', 'fueldev.xyz/docs/forc')
+        .replace('fuel.network/sway', 'fueldev.xyz/docs/sway');
     }
     const value = parent.children[idx + 1].value;
     parent.children[idx] = {
