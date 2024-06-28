@@ -1,4 +1,5 @@
 import { FuelProvider } from '@fuels/react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -35,6 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
               <Analytics />
               <SpeedInsights />
+              <GoogleAnalytics gaId='G-N4JQYG1RB2' />
             </Provider>
           </ShowWarningProvider>
         </VersionProvider>
